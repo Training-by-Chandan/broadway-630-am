@@ -16,10 +16,72 @@ namespace ConsoleApp.Broadway._630AM
 
             //DateTimeExample();
 
-            StringConcatenation();
+            //StringConcatenation();
+
+            //ArrayExample();
+
+            StringManipulation();
 
             Console.ReadLine();
             return;
+        }
+
+        private static void BranchingStatementExample()
+        {
+            Console.WriteLine("Enter the day number");
+            var str = Console.ReadLine();
+            var choice = Convert.ToInt32(str);
+            string day = "";
+            if (str == "1")
+                day = "Sunday";
+            else if (str == "2")
+                day = "Monday";
+            else if (str == "3")
+                day = "Tuesday";
+            else if (str == "4")
+                day = "Wednesday";
+            else if (str == "5")
+                day = "Thursday";
+            else if (str == "6")
+                day = "Friday";
+            else if (str == "7")
+                day = "Saturday";
+            else
+                day = "Not a valid day";
+
+            var dayNew = str == "1" ? "Sunday" : str == "2" ? "Monday" : str == "3" ? "Tuesday" : str == "4" ? "Wednesday" : str == "5" ? "Thursday" : str == "6" ? "Friday" : str == "7" ? "Saturday" : "Not a valid day";
+        }
+
+        private static void StringManipulation()
+        {
+            string[] str = new string[] { "Hari", "Rainy", "Pratik", "Ruman", "Kishor", "Basanta" };
+
+            var joined = string.Join("-", str);
+            var someText = "            the quick brown fox jumps over    the   lazy     dog           ";
+            someText = someText.Replace("the", "a");
+            var quickPresent = someText.Contains("quick");
+            var totallength = someText.Count();
+            someText = someText.Trim();
+            var subStr = someText.Substring(3, 5);
+
+            var splittedText = someText.Split(' ');
+        }
+
+        private static void ArrayExample()
+        {
+            int[] i = new int[5];
+            //0 to 4
+            i[0] = 10;
+            i[1] = 11;
+            i[2] = 5;
+            i[3] = 7;
+            i[4] = 9;
+            Array.Reverse(i);
+            Array.Resize(ref i, i.Length + 2);
+            int[] k = new int[3];
+            Array.Copy(i, 2, k, 1, 2);
+            k[0] = i[1];
+            int[] j = new int[] { 1, 3, 5, 7, 8, 9 };
         }
 
         private static void StringConcatenation()
@@ -39,7 +101,7 @@ namespace ConsoleApp.Broadway._630AM
             //string formatting
             var s4 = "{0} beautiful {1}";
             var s5 = string.Format(s4, s1, s2);
-            Console.WriteLine("{0} {1} {2} {3} {4}", strArr);
+            Console.WriteLine("{0} {1} {2} {3} {4} {0} {0} {2}", strArr);
             var baseurl = "http://chandanbhagat.com.np";
             var otherurl = "http://chandanbhagat.com.np\\v1\\{0}";
             var contact = string.Format(otherurl, "contact");
