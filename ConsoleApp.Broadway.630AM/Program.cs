@@ -26,11 +26,19 @@ namespace ConsoleApp.Broadway._630AM
             return;
         }
 
+        private static void LoopingStatementExample()
+        {
+        }
+
         private static void BranchingStatementExample()
         {
             Console.WriteLine("Enter the day number");
             var str = Console.ReadLine();
             var choice = Convert.ToInt32(str);
+            //todo : Chandan : Need to implement some ideas here
+
+            #region If Then Else Code Block
+
             string day = "";
             if (str == "1")
                 day = "Sunday";
@@ -50,6 +58,83 @@ namespace ConsoleApp.Broadway._630AM
                 day = "Not a valid day";
 
             var dayNew = str == "1" ? "Sunday" : str == "2" ? "Monday" : str == "3" ? "Tuesday" : str == "4" ? "Wednesday" : str == "5" ? "Thursday" : str == "6" ? "Friday" : str == "7" ? "Saturday" : "Not a valid day";
+            string dayType = "";
+            if (str == "1" || str == "7")
+            {
+                dayType = "Weekends";
+            }
+            else if (str == "2" || str == "3" || str == "4" || str == "5" || str == "6")
+            {
+                dayType = "Weekdays";
+            }
+            else
+            {
+                dayType = "not a valid day type";
+            }
+
+            #endregion If Then Else Code Block
+
+            #region Switch Case Code Block
+
+            //using switch case here
+            var day_sw = "";
+            switch (str)
+            {
+                case "1":
+                    day_sw = "Sunday";
+                    break;
+
+                case "2":
+                    day_sw = "Monday";
+                    break;
+
+                case "3":
+                    day_sw = "Tuesday";
+                    break;
+
+                case "4":
+                    day_sw = "Wednesday";
+                    break;
+
+                case "5":
+                    day_sw = "Thursday";
+                    break;
+
+                case "6":
+                    day_sw = "Friday";
+                    break;
+
+                case "7":
+                    day_sw = "Saturday";
+                    break;
+
+                default:
+                    day_sw = "Not a valid day";
+                    break;
+            }
+
+            var dayType_sw = "";
+            switch (str)
+            {
+                case "1":
+                case "7":
+                    dayType_sw = "Weekends";
+                    break;
+
+                case "2":
+                case "3":
+                case "4":
+                case "5":
+                case "6":
+                    dayType_sw = "Weekdays";
+                    break;
+
+                default:
+                    dayType_sw = "Not a valid day type";
+                    break;
+            }
+
+            #endregion Switch Case Code Block
         }
 
         private static void StringManipulation()
