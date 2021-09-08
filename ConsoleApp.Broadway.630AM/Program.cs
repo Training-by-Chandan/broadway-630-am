@@ -10,24 +10,117 @@ namespace ConsoleApp.Broadway._630AM
     {
         public static void Main(string[] args)
         {
-            //Test();
+            var choice = "n";
+            do
+            {
+                //Test();
 
-            //DataTypeExplanation();
+                //DataTypeExplanation();
 
-            //DateTimeExample();
+                //DateTimeExample();
 
-            //StringConcatenation();
+                //StringConcatenation();
 
-            //ArrayExample();
+                //ArrayExample();
 
-            StringManipulation();
+                //StringManipulation();
 
+                //BranchingStatementExample();
+
+                //LoopingStatementExample();
+
+                EnumImplementations();
+
+                Console.WriteLine("Do you want to continue more? (y/n)");
+                choice = Console.ReadLine();
+            } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
         }
 
+        private static void EnumImplementations()
+        {
+            //var gender = Gender.Female;
+            //Console.WriteLine(gender.ToString());
+            //Console.WriteLine((int)gender);
+            Console.WriteLine("Enter the day number ");
+            var choice = (DaysEnum)Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case DaysEnum.Sunday:
+                    break;
+
+                case DaysEnum.Monday:
+                    break;
+
+                case DaysEnum.Tuesday:
+                    break;
+
+                case DaysEnum.Wednesday:
+                    break;
+
+                case DaysEnum.Thursday:
+                    break;
+
+                case DaysEnum.Friday:
+                    break;
+
+                case DaysEnum.Saturday:
+                    break;
+
+                default:
+                    break;
+            }
+            var dayType = "";
+            switch (choice)
+            {
+                case DaysEnum.Sunday:
+                case DaysEnum.Saturday:
+                    dayType = "Weekends";
+                    break;
+
+                case DaysEnum.Monday:
+                case DaysEnum.Tuesday:
+                case DaysEnum.Wednesday:
+                case DaysEnum.Thursday:
+                case DaysEnum.Friday:
+                    dayType = "Weekends";
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
         private static void LoopingStatementExample()
         {
+            Console.WriteLine("Enter a sentence");
+            var sentence = Console.ReadLine();
+            var words = sentence.Split(' ');
+            string longestWord = "";
+
+            //for loop
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (longestWord.Length < words[i].Length)
+                {
+                    longestWord = words[i];
+                }
+                Console.WriteLine(words[i]);
+            }
+
+            Console.WriteLine($"Longest Word is {longestWord}");
+
+            //foreach loop
+            longestWord = "";
+            foreach (var item in words)
+            {
+                if (longestWord.Length < item.Length)
+                {
+                    longestWord = item;
+                }
+            }
+            Console.WriteLine($"Longest Word is {longestWord}");
         }
 
         private static void BranchingStatementExample()
@@ -295,5 +388,26 @@ namespace ConsoleApp.Broadway._630AM
         }
 
         private static int Subtract(int a, int b) => a - b;
+    }
+
+    public enum Gender
+    {
+        Female = 8,
+        Male = 3,
+        Others = 10
+    }
+
+    public enum DaysEnum
+    {
+        None = 0,
+        Sunday = 1,
+        Monday = 2,
+        Tuesday = 3,
+        Wednesday = 4,
+        Thursday = 5,
+        Friday = 6,
+        Saturday = 7,
+        Weekdays = Monday | Wednesday | Thursday | Thursday | Friday,
+        Weekends = Sunday | Saturday
     }
 }
