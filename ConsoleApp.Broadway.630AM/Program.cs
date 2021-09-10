@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp.Broadway._630AM.ABC;
 
 namespace ConsoleApp.Broadway._630AM
 {
@@ -29,13 +30,40 @@ namespace ConsoleApp.Broadway._630AM
 
                 //LoopingStatementExample();
 
-                EnumImplementations();
+                //EnumImplementations();
+
+                ClassExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        public static void ClassExample()
+        {
+            //var h1=new Human();
+            // Console.WriteLine(h1.Weight);
+            // h1.Weight = 100;
+            Human h1 = new Human();
+
+            StudentMarks s1 = new StudentMarks();
+            s1.AssignName("Chandan", "Bhagat");
+            Console.WriteLine(s1.FullName);
+            Console.WriteLine(s1.Intials);
+
+            s1.AssignName("Pratik", "Bashyal");
+            Console.WriteLine(s1.FullName);
+            Console.WriteLine(s1.Intials);
+
+            StudentMarks s2 = new StudentMarks();
+            StudentMarks s5 = new StudentMarks();
+            //s2.AssignName("Rainy", "Rijal");
+
+            StudentMarks s3 = new StudentMarks("Pratik", "Bashyal");
+
+            StudentMarks s4 = new StudentMarks("Chandan");
         }
 
         private static void EnumImplementations()
