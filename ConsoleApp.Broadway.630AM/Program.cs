@@ -32,13 +32,37 @@ namespace ConsoleApp.Broadway._630AM
 
                 //EnumImplementations();
 
-                ClassExample();
+                //ClassExample();
+
+                OperatorOverloadingExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        public static void OperatorOverloadingExample()
+        {
+            int i = 1;
+            int j = 2;
+            int sum = i + j;
+            i++;
+
+            StudentMarks s1 = new StudentMarks("Chandan", "Bhagat") { MathMarks = 50, ScienceMarks = 30 };
+
+            StudentMarks s2 = new StudentMarks("Default", "Default") { MathMarks = 50, ScienceMarks = 30 };
+
+            StudentMarks s3 = s1 + s2;
+
+            StudentMarks s4 = s1 - s3;
+
+            s1++;
+
+            var s5 = s1 + 5;
+
+            var equals = s1 == s2;
         }
 
         public static void ClassExample()
@@ -62,7 +86,7 @@ namespace ConsoleApp.Broadway._630AM
             //s2.AssignName("Rainy", "Rijal");
 
             StudentMarks s3 = new StudentMarks("Pratik", "Bashyal");
-
+            Guid guid = Guid.NewGuid();
             StudentMarks s4 = new StudentMarks("Chandan");
         }
 
