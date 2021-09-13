@@ -34,13 +34,35 @@ namespace ConsoleApp.Broadway._630AM
 
                 //ClassExample();
 
-                OperatorOverloadingExample();
+                //OperatorOverloadingExample();
+
+                StaticAndNonStaticExplained();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        public static void StaticAndNonStaticExplained()
+        {
+            var something = StaticClass.j;
+            StaticClass.TestFunction();
+            Console.WriteLine();
+
+            NonStaticClass nonStaticCLass = new NonStaticClass();
+            NonStaticClass nonStaticCLass1 = new NonStaticClass();
+            NonStaticClass nonStaticCLass2 = new NonStaticClass();
+            NonStaticClass nonStaticCLass3 = new NonStaticClass();
+            Console.WriteLine("nonStaticClass");
+            nonStaticCLass.TestFunction();
+            Console.WriteLine("nonStaticClass1");
+            nonStaticCLass1.TestFunction();
+            Console.WriteLine("nonStaticClass2");
+            nonStaticCLass2.TestFunction();
+            Console.WriteLine("nonStaticClass3");
+            nonStaticCLass3.TestFunction();
         }
 
         public static void OperatorOverloadingExample()
