@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp.Broadway._630AM.ABC;
+using Library1;
 
 namespace ConsoleApp.Broadway._630AM
 {
@@ -36,13 +37,39 @@ namespace ConsoleApp.Broadway._630AM
 
                 //OperatorOverloadingExample();
 
-                StaticAndNonStaticExplained();
+                //StaticAndNonStaticExplained();
+
+                InheritenceExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        public static void InheritenceExample()
+        {
+            //LivingThings l1 = new LivingThings();
+            LivingThings l2 = new LivingThings(1);
+            LivingThings l3 = new LivingThings("");
+
+            Animal a1 = new Animal();
+            Animal a2 = new Animal(1);
+            Animal a3 = new Animal("");
+
+            Class1 c1 = new Class1();
+
+            //Plant p1 = new Plant();
+            //Human h1 = new Human();
+            //l1.Respire();
+            //l1.Eat();
+            //a1.Respire();
+            //a1.Eat();
+            //p1.Respire();
+            //p1.Eat();
+            //h1.Respire();
+            //h1.Eat();
         }
 
         public static void StaticAndNonStaticExplained()
@@ -76,7 +103,7 @@ namespace ConsoleApp.Broadway._630AM
 
             StudentMarks s2 = new StudentMarks("Default", "Default") { MathMarks = 50, ScienceMarks = 30 };
 
-            StudentMarks s3 = s1 + s2;
+            StudentMarks s3 = s1 + s2 + s2 + s2 + s2;
 
             StudentMarks s4 = s1 - s3;
 
@@ -92,7 +119,7 @@ namespace ConsoleApp.Broadway._630AM
             //var h1=new Human();
             // Console.WriteLine(h1.Weight);
             // h1.Weight = 100;
-            Human h1 = new Human();
+            HumanBeing h1 = new HumanBeing();
 
             StudentMarks s1 = new StudentMarks();
             s1.AssignName("Chandan", "Bhagat");

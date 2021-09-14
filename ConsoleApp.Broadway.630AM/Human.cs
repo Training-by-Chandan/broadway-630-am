@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp.Broadway._630AM.ABC
 {
-    public class Human
+    public class HumanBeing
     {
-        public Human()
+        public HumanBeing()
         {
             Console.WriteLine("A new human is born.");
         }
