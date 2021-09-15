@@ -39,13 +39,59 @@ namespace ConsoleApp.Broadway._630AM
 
                 //StaticAndNonStaticExplained();
 
-                InheritenceExample();
+                //InheritenceExample();
+
+                InheritenceV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        public static void InheritenceV2()
+        {
+            LivingThings l1 = new LivingThings(1);
+            Animal a1 = new Animal();
+            Plant p1 = new Plant();
+            Human h1 = new Human();
+            int i = 'C';
+            Man m1 = new Man();
+            ////implicit casting
+            //l1 = a1;
+            //l1 = p1;
+            ////a1 = (Animal)(LivingThings)p1;
+            //a1 = h1;
+
+            ////explicit casting
+            //h1 = (Human)a1;
+            //a1 = (Animal)l1;
+            //p1 = (Plant)l1;
+
+            //l1 = p1;
+            //a1 = (Animal)(LivingThings)p1;
+            //p1 = (Plant)(LivingThings)a1;
+
+            //l1 = h1;
+            //p1 = (Plant)(LivingThings)h1;
+
+            l1.Eat();
+            Console.WriteLine(l1.ToString());
+            Console.WriteLine();
+            a1.Eat();
+            Console.WriteLine(a1.ToString());
+            Console.WriteLine();
+            p1.Eat();
+            Console.WriteLine(p1.ToString());
+            Console.WriteLine();
+            h1.Eat();
+            Console.WriteLine(h1.ToString());
+            Console.WriteLine();
+            m1.Eat();
+            Console.WriteLine(m1.ToString());
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         public static void InheritenceExample()

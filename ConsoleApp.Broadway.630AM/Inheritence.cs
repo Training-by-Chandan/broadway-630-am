@@ -34,9 +34,14 @@ namespace ConsoleApp.Broadway._630AM
             Console.WriteLine("I am living thing and I can resipr ");
         }
 
-        public void Eat()
+        public virtual void Eat()
         {
             Console.WriteLine("I am living thing and I can eat");
+        }
+
+        public override string ToString()
+        {
+            return "An object of Living Thing";
         }
     }
 
@@ -60,6 +65,17 @@ namespace ConsoleApp.Broadway._630AM
 
             K = 30;
         }
+
+        public override void Eat()
+        {
+            base.Eat();
+            Console.WriteLine("I am from animal and I eat like animal");
+        }
+
+        public override string ToString()
+        {
+            return "I am object of Animal";
+        }
     }
 
     public class Plant : LivingThings
@@ -67,12 +83,33 @@ namespace ConsoleApp.Broadway._630AM
         public Plant() : base(10)
         {
         }
+
+        public override void Eat()
+        {
+            base.Eat();
+            Console.WriteLine("I am from plant and I eat like plant");
+        }
     }
 
     public class Human : Animal
     {
         public Human()
         {
+        }
+
+        public override void Eat()
+        {
+            base.Eat();
+            Console.WriteLine("I am human and I eat delicious food");
+        }
+    }
+
+    public class Man : Human
+    {
+        public void Eat()
+        {
+            base.Eat();
+            Console.WriteLine("I am man and I eat like human");
         }
     }
 
