@@ -41,13 +41,54 @@ namespace ConsoleApp.Broadway._630AM
 
                 //InheritenceExample();
 
-                InheritenceV2();
+                //InheritenceV2();
+
+                InterfaceExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        private static IShape shape;
+
+        private static void InterfaceExample()
+        {
+            Console.WriteLine("Press\n1 for Rectangle\n2 for Square\n3 for Circle");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    shape = new Rectangle();
+                    break;
+
+                case 2:
+                    shape = new Square();
+                    break;
+
+                case 3:
+                    shape = new Circle();
+                    break;
+
+                default:
+                    break;
+            }
+
+            shape.GetInput();
+            shape.Area();
+            shape.Perimeter();
+
+            ////forceful conversion
+            // var s1 = (Rectangle)shape;
+
+            ////if casted successfully then ok else I will take null
+            //var s = shape as Rectangle;
+            //if (shape as Rectangle != null)
+            //{
+            //    Console.WriteLine("The shape is rectangle");
+            //}
         }
 
         public static void InheritenceV2()
