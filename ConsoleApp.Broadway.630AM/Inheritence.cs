@@ -102,6 +102,10 @@ namespace ConsoleApp.Broadway._630AM
             base.Eat();
             Console.WriteLine("I am human and I eat delicious food");
         }
+
+        public void Run()
+        {
+        }
     }
 
     public class Man : Human
@@ -117,6 +121,36 @@ namespace ConsoleApp.Broadway._630AM
     {
         private void TestFunction()
         {
+        }
+    }
+
+    public class RectangleNew : Rectangle
+    {
+        public void FunctionOne()
+        {
+        }
+    }
+
+    public static class RectangleExtension
+    {
+        public static void FunctionNew(this Rectangle r)
+        {
+        }
+    }
+
+    public static class IntExtension
+    {
+        public static int increasebynum(this int x, int num)
+        {
+            return x + num;
+        }
+    }
+
+    public static class StrinExtension
+    {
+        public static string AddDot(this string s)
+        {
+            return s + ".";
         }
     }
 }

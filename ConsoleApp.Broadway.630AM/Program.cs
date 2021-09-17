@@ -43,13 +43,55 @@ namespace ConsoleApp.Broadway._630AM
 
                 //InheritenceV2();
 
-                InterfaceExample();
+                //InterfaceExample();
+
+                AbstractExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        private static void ExtensionFunctionExample()
+        {
+            Rectangle r = new Rectangle();
+            //r.FunctionOne();
+            r.FunctionNew();
+
+            RectangleNew rnew = new RectangleNew();
+            rnew.FunctionOne();
+            int i = 10;
+            i = i.increasebynum(5);
+
+            string str = "something";
+            str = str.AddDot();
+        }
+
+        private static ShapeAbs shapeAbs;
+
+        private static void AbstractExample()
+        {
+            Console.WriteLine("Press\n1 for Rectangle\nothers for Square");
+            var choice = Convert.ToInt32(Console.ReadLine());
+            shapeAbs = FactoryShapeAbstract(choice);
+
+            shapeAbs.GetInput();
+            shapeAbs.Area();
+            shapeAbs.Perimeter();
+        }
+
+        private static ShapeAbs FactoryShapeAbstract(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return new RectangleAbs();
+
+                default:
+                    return new SquareAbs();
+            }
         }
 
         private static IShape shape;
