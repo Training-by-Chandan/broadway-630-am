@@ -45,13 +45,71 @@ namespace ConsoleApp.Broadway._630AM
 
                 //InterfaceExample();
 
-                AbstractExample();
+                //AbstractExample();
+
+                //StackImplmentation();
+
+                StackImplementationV2();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        public static void StackImplementationV2()
+        {
+            CustomStackV2 cs = new CustomStackV2();
+            cs.Push(12);
+            cs.Push(13);
+            cs.Push(14);
+            cs.Push(15);
+            cs.Push(16);
+            cs.Push(17);
+            cs.Push(18);
+
+            cs.DisplayAll();
+            cs.Peek();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.DisplayAll();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.DisplayAll();
+        }
+
+        private static void StackImplmentation()
+        {
+            CustomStack cs = new CustomStack();
+            cs.Push(10);
+            cs.Push(12);
+            cs.Push(15);
+            cs.DisplayAll();
+            cs.Pop();
+            cs.DisplayAll();
+            cs.Push(8);
+            cs.Push(3);
+            cs.Push(67);
+            cs.Push(12);
+            cs.DisplayAll();
+            cs.Peek();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            cs.Pop();
+            Console.WriteLine("Enter the size of stack");
+            var size = Convert.ToInt32(Console.ReadLine());
+            CustomStack cs1 = new CustomStack(size);
         }
 
         private static void ExtensionFunctionExample()
