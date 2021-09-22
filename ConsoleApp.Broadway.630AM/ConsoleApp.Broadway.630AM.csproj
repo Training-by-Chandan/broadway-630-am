@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractClass.cs" />
+    <Compile Include="Collection.cs" />
     <Compile Include="CustomStack.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Inheritence.cs" />
