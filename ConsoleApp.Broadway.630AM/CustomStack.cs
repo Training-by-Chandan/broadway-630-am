@@ -13,11 +13,13 @@ namespace ConsoleApp.Broadway._630AM
             maxSize = 5;
             container = new int[maxSize];
         }
+
         public CustomStack(int maxItem)
         {
             maxSize = maxItem;
             container = new int[maxSize];
         }
+
         private int maxSize = 0;
         private int[] container = new int[0];
         private int counter = 0;
@@ -66,11 +68,11 @@ namespace ConsoleApp.Broadway._630AM
         }
     }
 
-    public class CustomStackV2
+    public class CustomStackV2<Anything>
     {
-        private int[] container = new int[0];
+        private Anything[] container = new Anything[0];
 
-        public void Push(int item)
+        public void Push(Anything item)
         {
             Array.Resize(ref container, container.Length + 1);
             var index = container.Length - 1;
@@ -79,7 +81,7 @@ namespace ConsoleApp.Broadway._630AM
 
         public void Pop()
         {
-            if (container.Length>0)
+            if (container.Length > 0)
             {
                 Array.Resize(ref container, container.Length - 1);
             }
@@ -87,19 +89,17 @@ namespace ConsoleApp.Broadway._630AM
 
         public void DisplayAll()
         {
-            for (int i = container.Length-1; i >= 0; i--)
+            for (int i = container.Length - 1; i >= 0; i--)
             {
                 Console.WriteLine(container[i]);
             }
             Console.WriteLine("-----------------------");
-
         }
 
         public void Peek()
         {
             Console.WriteLine($"Item at top of the stack is {container[container.Length - 1]}");
             Console.WriteLine("-----------------------");
-
         }
     }
 }

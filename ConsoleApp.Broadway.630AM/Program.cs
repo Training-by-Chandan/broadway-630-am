@@ -58,9 +58,16 @@ namespace ConsoleApp.Broadway._630AM
             return;
         }
 
+        private static void TemplateExamples()
+        {
+            var templates = new Templates<Circle, decimal>();
+
+            templates.FunctionTwo<Human, float, int>(new Human(), 12.45f, 12);
+        }
+
         public static void StackImplementationV2()
         {
-            CustomStackV2 cs = new CustomStackV2();
+            CustomStackV2<int> cs = new CustomStackV2<int>();
             cs.Push(12);
             cs.Push(13);
             cs.Push(14);
@@ -83,6 +90,9 @@ namespace ConsoleApp.Broadway._630AM
             cs.Pop();
             cs.Pop();
             cs.DisplayAll();
+
+            CustomStackV2<string> str = new CustomStackV2<string>();
+            str.Push("abc");
         }
 
         private static void StackImplmentation()
