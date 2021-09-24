@@ -49,6 +49,7 @@
     <Compile Include="Human.cs" />
     <Compile Include="Inheritence.cs" />
     <Compile Include="Interfaces.cs" />
+    <Compile Include="LinqExamples.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticClass.cs" />

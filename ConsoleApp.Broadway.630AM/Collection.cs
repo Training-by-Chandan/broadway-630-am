@@ -27,7 +27,7 @@ namespace ConsoleApp.Broadway._630AM
 
             var res = FunctionForTuple();
             var item1 = res.Item1;
-            var item2 = res.Item2;
+            var item2 = res.Item3;
         }
 
         public Tuple<int, string, float, string, int> FunctionForTuple()
