@@ -51,13 +51,35 @@ namespace ConsoleApp.Broadway._630AM
 
                 //StackImplementationV2();
 
-                LinqImpl();
+                //LinqImpl();
+
+                PassbyExamples();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        private static void PassbyExamples()
+        {
+            int x = 2;
+            int y = 1;
+
+            var res = PassBy.Value(x, y);
+            Console.WriteLine($"Value of x={x} and y={y}");
+            res = PassBy.Value(x, y);
+            Console.WriteLine($"Value of x={x} and y={y}");
+
+            PassBy.Refernece(ref x, ref y);
+            Console.WriteLine($"Value of x={x} and y={y}");
+            PassBy.Value(x, y);
+            Console.WriteLine($"Value of x={x} and y={y}");
+            PassBy.Refernece(ref x, ref y);
+            Console.WriteLine($"Value of x={x} and y={y}");
+            int a = 0;
+            PassBy.Out(x, y, out a);
         }
 
         private static void LinqImpl()
