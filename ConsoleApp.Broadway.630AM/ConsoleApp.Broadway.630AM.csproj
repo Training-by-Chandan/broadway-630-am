@@ -46,6 +46,7 @@
     <Compile Include="AbstractClass.cs" />
     <Compile Include="Collection.cs" />
     <Compile Include="CustomStack.cs" />
+    <Compile Include="Deleg.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Inheritence.cs" />
     <Compile Include="Interfaces.cs" />

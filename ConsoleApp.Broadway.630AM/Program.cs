@@ -53,7 +53,9 @@ namespace ConsoleApp.Broadway._630AM
 
                 //LinqImpl();
 
-                PassbyExamples();
+                //PassbyExamples();
+
+                DelegateExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
@@ -62,10 +64,19 @@ namespace ConsoleApp.Broadway._630AM
             return;
         }
 
+        public static void DelegateExample()
+        {
+            Deleg d = new Deleg();
+            d.FunctionOne();
+        }
+
         private static void PassbyExamples()
         {
             int x = 2;
             int y = 1;
+            PassBy p = new PassBy();
+            var some = p.testnew;
+            some = PassBy.test;
 
             var res = PassBy.Value(x, y);
             Console.WriteLine($"Value of x={x} and y={y}");
