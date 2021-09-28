@@ -55,13 +55,24 @@ namespace ConsoleApp.Broadway._630AM
 
                 //PassbyExamples();
 
-                DelegateExample();
+                //DelegateExample();
+
+                ThreadExample();
 
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        private static void ThreadExample()
+        {
+            ThreadSample t = new ThreadSample();
+            //t.MainFunction();
+
+            TaskSample t1 = new TaskSample();
+            t1.MainFunction();
         }
 
         public static void DelegateExample()

@@ -58,6 +58,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="StudentMarks.cs" />
     <Compile Include="Templates.cs" />
+    <Compile Include="ThreadSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
