@@ -67,7 +67,7 @@ namespace ConsoleApp.Broadway._630AM
         public void MainFunction()
         {
             t1 = new Task(FunctionOne, tokenSource.Token);
-            t2 = new Task(FunctionTwo, tokenSource.Token);
+            t2 = FunctionTwo();
 
             t1.Start();
             t2.Start();
@@ -89,7 +89,7 @@ namespace ConsoleApp.Broadway._630AM
             //FunctionThree();
         }
 
-        public async void FunctionTwo()
+        public async Task FunctionTwo()
         {
             for (int i = 0; i < 10; i++)
             {
@@ -109,6 +109,107 @@ namespace ConsoleApp.Broadway._630AM
                 x++;
                 await Task.Delay(1000);
             }
+        }
+    }
+
+    public class TaskSampleV2
+    {
+        public int x = 0;
+        private CancellationTokenSource tokenSource = new CancellationTokenSource();
+
+        public void MainFunction()
+        {
+            Task t1 = new Task(FunctionOne, tokenSource.Token);
+            Task t2 = new Task(FunctionTwo, tokenSource.Token);
+            Task t3 = new Task(FunctionThree, tokenSource.Token);
+
+            Task T = Task.Run(() =>
+            {
+                t1.Start();
+                t2.Start();
+            }).ContinueWith(a =>
+            {
+                t3.Start();
+            }, tokenSource.Token, TaskContinuationOptions.OnlyOnRanToCompletion, TaskScheduler.Default);
+
+            // tokenSource.CancelAfter(5000);
+        }
+
+        public async void FunctionOne()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                Console.WriteLine($"1st Function Says {i} at {DateTime.Now} & X={x}");
+                x++;
+                await Task.Delay(1250);
+            }
+            //FunctionThree();
+        }
+
+        public async void FunctionTwo()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"                           2nd Function Says {i} at {DateTime.Now} & X={x}");
+                x++;
+                await Task.Delay(1000);
+            }
+
+            //  tokenSource.CancelAfter(2000);
+        }
+
+        public async void FunctionThree()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"      3rd Function Says {i} at {DateTime.Now} & X={x}");
+                x++;
+                await Task.Delay(1000);
+            }
+        }
+    }
+
+    public class TaskSampleV3
+    {
+        public async void MainFunction()
+        {
+            //var i = await FunctionOne();
+            //var j = FunctionTwo();
+            //FunctionThree("no dependency");
+            //Task t = Task.Factory.StartNew(() => {
+            //});
+
+            List<Action> tasks = new List<Action>();
+            tasks.Add(() => FunctionOne());
+            tasks.Add(() => { FunctionOne(); });
+            tasks.Add(() => { FunctionOne(); });
+            tasks.Add(() => { FunctionTwo(); });
+            tasks.Add(() => { FunctionTwo(); });
+            Parallel.Invoke(tasks.ToArray());
+        }
+
+        public async Task<int> FunctionOne()
+        {
+            Console.WriteLine("Entering FunctionOne");
+            await Task.Delay(10000);
+            Console.WriteLine("Exiting FunctionOne");
+            return 10;
+        }
+
+        public async Task<string> FunctionTwo()
+        {
+            Console.WriteLine("Entering Function Two");
+            await Task.Delay(6000);
+            Console.WriteLine("Exiting from Function Two");
+            return "Something";
+        }
+
+        public async Task FunctionThree(string s)
+        {
+            Console.WriteLine("Entering FunctionThree");
+
+            await Task.Delay(3000);
+            Console.WriteLine("From Function Three the value of s is " + s);
         }
     }
 }

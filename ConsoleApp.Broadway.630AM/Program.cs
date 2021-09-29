@@ -72,7 +72,12 @@ namespace ConsoleApp.Broadway._630AM
             //t.MainFunction();
 
             TaskSample t1 = new TaskSample();
-            t1.MainFunction();
+            //t1.MainFunction();
+
+            TaskSampleV2 t2 = new TaskSampleV2();
+            // t2.MainFunction();
+            TaskSampleV3 t3 = new TaskSampleV3();
+            t3.MainFunction();
         }
 
         public static void DelegateExample()
