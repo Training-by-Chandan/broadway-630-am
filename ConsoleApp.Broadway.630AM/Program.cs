@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace ConsoleApp.Broadway._630AM
             var choice = "n";
             do
             {
+                //try
+                //{
                 //Test();
 
                 //DataTypeExplanation();
@@ -57,13 +60,84 @@ namespace ConsoleApp.Broadway._630AM
 
                 //DelegateExample();
 
-                ThreadExample();
+                //ThreadExample();
 
+                //FileHandlingExample();
+
+                ErrorHandlingExample();
+                //}
+                //catch (Exception ex)
+                //{
+                //    Console.WriteLine(ex.Message);
+                //}
                 Console.WriteLine("Do you want to continue more? (y/n)");
                 choice = Console.ReadLine();
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        private static IShape shapes;
+        private static Human h;
+
+        public static void ErrorHandlingExample()
+        {
+            try
+            {
+                //shapes.GetInput();
+                //h.Eat();
+                Exceptions e = new Exceptions();
+                e.Divide(10, 20);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                var path = "D:\\list.txt";
+                System.IO.File.AppendAllText(path, $"\n\n\n{DateTime.Now}\n{ex.Message}\n{ex.StackTrace}");
+            }
+        }
+
+        public static void FileHandlingExample()
+        {
+            var path = "D:\\list.txt";
+            var directorypath = "D:\\Projects\\Broadway\\newfolder";
+
+            var info = new DirectoryInfo(directorypath);
+
+            var files = info.GetFiles();
+
+            var folders = info.GetDirectories();
+            Console.WriteLine("Name\tExtension\tSize\tCreated Time");
+            foreach (var item in files)
+            {
+                var filepath = Path.Combine(directorypath, item.Name);
+                // Console.WriteLine($"\n\n-----------------{item.Name} Information------------");
+                //var content = File.ReadAllText(filepath);
+                //Console.WriteLine(content);
+                var fileinfo = new FileInfo(filepath);
+                Console.WriteLine($"{item.Name}\t{item.Extension}\t{item.Length}\t{item.CreationTime}");
+            }
+
+            Console.WriteLine();
+
+            //you can uncomment these lines later for your learning
+            ////-------------------Directory----------------------
+            //var basepath = "D:\\Projects\\Broadway";
+
+            //Console.WriteLine("Enter the name of directory you want to create");
+            //var directoryname = Console.ReadLine();
+
+            //System.IO.Directory.CreateDirectory(System.IO.Path.Combine(basepath, directoryname));
+
+            ////------------File-----------------------------
+            //Console.WriteLine("Enter the text to write in the file");
+            //var input = Console.ReadLine();
+
+            //System.IO.File.AppendAllText(path, input);
+
+            //var content = System.IO.File.ReadAllText(path);
+            //Console.WriteLine("------------After reading -----------------");
+            //Console.WriteLine(content);
         }
 
         private static void ThreadExample()
