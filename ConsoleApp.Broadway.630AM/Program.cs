@@ -6,13 +6,35 @@ using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp.Broadway._630AM.ABC;
 using Library1;
+using Microsoft.CodeAnalysis.CSharp.Scripting;
+using Microsoft.CodeAnalysis.Scripting;
+using System.Configuration;
 
 namespace ConsoleApp.Broadway._630AM
 {
     internal class Program
     {
+        private static bool DevMode = false;
+
         public static void Main(string[] args)
         {
+            var name = ConfigurationManager.AppSettings["AppName"];
+            var background = ConfigurationManager.AppSettings["Background"];
+            if (background == "Green")
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+            }
+            else if (background == "Red")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+            }
+
+            Console.WriteLine($"Welcome to {name}");
+            if (args.Contains("--env=dev"))
+            {
+                DevMode = true;
+                Console.WriteLine("Developer Mode on");
+            }
             var choice = "n";
             do
             {
@@ -64,7 +86,10 @@ namespace ConsoleApp.Broadway._630AM
 
                 //FileHandlingExample();
 
-                ErrorHandlingExample();
+                //ErrorHandlingExample();
+
+                RuntimeCode();
+
                 //}
                 //catch (Exception ex)
                 //{
@@ -75,6 +100,16 @@ namespace ConsoleApp.Broadway._630AM
             } while (choice.ToLower() == "y");
             Console.ReadLine();
             return;
+        }
+
+        private static async void RuntimeCode()
+        {
+            Console.WriteLine("Enter the c# code you want to execute");
+            var code = Console.ReadLine();
+            var run = await CSharpScript.RunAsync(code, ScriptOptions.Default);
+
+            var result = (string)run.ReturnValue;
+            Console.WriteLine(result);
         }
 
         private static IShape shapes;
@@ -99,8 +134,12 @@ namespace ConsoleApp.Broadway._630AM
             {
                 Console.WriteLine(ex.GetType());
                 Console.WriteLine(ex.Message);
-                //var path = "D:\\list.txt";
-                //System.IO.File.AppendAllText(path, $"\n\n\n{DateTime.Now}\n{ex.Message}\n{ex.StackTrace}");
+#if DEBUG
+                var path = "D:\\list.txt";
+                System.IO.File.AppendAllText(path, $"\n\n\n{DateTime.Now}\n{ex.Message}\n{ex.StackTrace}");
+#else
+                var path = "";
+#endif
             }
             finally
             {
