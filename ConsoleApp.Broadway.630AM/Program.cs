@@ -84,16 +84,27 @@ namespace ConsoleApp.Broadway._630AM
         {
             try
             {
-                //shapes.GetInput();
-                //h.Eat();
+                Console.WriteLine("Enter first number:");
+                var a = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter second number:");
+                var b = Convert.ToInt32(Console.ReadLine());
                 Exceptions e = new Exceptions();
-                e.Divide(10, 20);
+                e.Divide(a, b);
+            }
+            catch (CustomException ex)
+            {
+                Console.WriteLine("I can handle custom exception here");
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.GetType());
                 Console.WriteLine(ex.Message);
-                var path = "D:\\list.txt";
-                System.IO.File.AppendAllText(path, $"\n\n\n{DateTime.Now}\n{ex.Message}\n{ex.StackTrace}");
+                //var path = "D:\\list.txt";
+                //System.IO.File.AppendAllText(path, $"\n\n\n{DateTime.Now}\n{ex.Message}\n{ex.StackTrace}");
+            }
+            finally
+            {
+                Console.WriteLine("I am from finally block");
             }
         }
 
