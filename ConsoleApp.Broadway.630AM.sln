@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Broadway.630AM",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library1", "Library1\Library1.csproj", "{16CA3A96-B508-409F-867A-56AE789454FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergingInterval", "MergingInterval\MergingInterval.csproj", "{2032D79E-BB1D-48A6-8F2A-6DA0D56205C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,12 @@ Global
 		{16CA3A96-B508-409F-867A-56AE789454FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{16CA3A96-B508-409F-867A-56AE789454FA}.Stage|Any CPU.ActiveCfg = Stage|Any CPU
 		{16CA3A96-B508-409F-867A-56AE789454FA}.Stage|Any CPU.Build.0 = Stage|Any CPU
+		{2032D79E-BB1D-48A6-8F2A-6DA0D56205C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2032D79E-BB1D-48A6-8F2A-6DA0D56205C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2032D79E-BB1D-48A6-8F2A-6DA0D56205C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2032D79E-BB1D-48A6-8F2A-6DA0D56205C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2032D79E-BB1D-48A6-8F2A-6DA0D56205C7}.Stage|Any CPU.ActiveCfg = Debug|Any CPU
+		{2032D79E-BB1D-48A6-8F2A-6DA0D56205C7}.Stage|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
