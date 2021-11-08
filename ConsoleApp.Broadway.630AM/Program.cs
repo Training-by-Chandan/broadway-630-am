@@ -40,7 +40,7 @@ namespace ConsoleApp.Broadway._630AM
             {
                 //try
                 //{
-                //Test();
+                Test();
 
                 //DataTypeExplanation();
 
@@ -88,7 +88,7 @@ namespace ConsoleApp.Broadway._630AM
 
                 //ErrorHandlingExample();
 
-                RuntimeCode();
+                //RuntimeCode();
 
                 //}
                 //catch (Exception ex)
