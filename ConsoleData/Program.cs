@@ -17,34 +17,40 @@ namespace ConsoleData
             var res = "n";
             do
             {
-                Console.WriteLine("Press 1 to View All\n2 to Insert\n3 to Update \n4 to Delete");
-                var choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "1":
-                        ReadPersonalTable();
-                        break;
+                //AdoData();
 
-                    case "2":
-                        InsertPersonal();
-                        break;
-
-                    case "3":
-                        UpdatePersonal();
-                        break;
-
-                    case "4":
-                        DeletePersonal();
-                        break;
-
-                    default:
-                        break;
-                }
                 Console.WriteLine("Do you want to continue more");
                 res = Console.ReadLine();
             } while (res.ToLower() == "y");
 
             Console.ReadLine();
+        }
+
+        private static void AdoData()
+        {
+            Console.WriteLine("Press 1 to View All\n2 to Insert\n3 to Update \n4 to Delete");
+            var choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "1":
+                    ReadPersonalTable();
+                    break;
+
+                case "2":
+                    InsertPersonal();
+                    break;
+
+                case "3":
+                    UpdatePersonal();
+                    break;
+
+                case "4":
+                    DeletePersonal();
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private static void ReadPersonalTable()
@@ -59,13 +65,13 @@ namespace ConsoleData
             con.Open();
             //step 5 execute the command
             var res = cmd.ExecuteReader();
-            //step 6 Read the data
+            //step 6 Close conenction
+            con.Close();
+            //step 7 Read the data
             while (res.Read())
             {
                 Console.WriteLine($"Id => {res.GetFieldValue<int>(0)}, FullName => {res.GetFieldValue<string>(1)} {res.GetFieldValue<string>(2)}");
             }
-            //step 7 Close conenction
-            con.Close();
         }
 
         private static void InsertPersonal()

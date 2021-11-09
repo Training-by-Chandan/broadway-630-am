@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergingInterval", "MergingI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleData", "ConsoleData\ConsoleData.csproj", "{3E1F0DB4-EDA4-4C85-83ED-7C2D57C9BEFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDatabaseFirst", "ConsoleDatabaseFirst\ConsoleDatabaseFirst.csproj", "{B0FEC346-0755-4FAC-BA96-88F5C64500E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,12 @@ Global
 		{3E1F0DB4-EDA4-4C85-83ED-7C2D57C9BEFA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E1F0DB4-EDA4-4C85-83ED-7C2D57C9BEFA}.Stage|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E1F0DB4-EDA4-4C85-83ED-7C2D57C9BEFA}.Stage|Any CPU.Build.0 = Debug|Any CPU
+		{B0FEC346-0755-4FAC-BA96-88F5C64500E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0FEC346-0755-4FAC-BA96-88F5C64500E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0FEC346-0755-4FAC-BA96-88F5C64500E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0FEC346-0755-4FAC-BA96-88F5C64500E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0FEC346-0755-4FAC-BA96-88F5C64500E0}.Stage|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0FEC346-0755-4FAC-BA96-88F5C64500E0}.Stage|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SomeDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="parentId" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="product" Type="varchar" MaxLength="50" />
+          <Property Name="price" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="parent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parentname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="parenttype" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SomeDb.dbo.Personal_Backup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Personal_Backup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentname" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="studentparent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentid" Type="int" Nullable="false" />
+          <Property Name="parentid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="studentparentnew">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentid" Type="int" Nullable="false" />
+          <Property Name="parentid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Personal1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SomeDb.dbo.vw_FullDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_FullDetails">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="age" Type="int" />
+          <Property Name="salary" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="orderid" Type="int" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="product" Type="varchar" MaxLength="50" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="price" Type="decimal" Precision="7" Scale="2" />
+        </EntityType>
+        <Association Name="FK__OrderDeta__useri__619B8048">
+          <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentpa__paren__6B24EA82">
+          <End Role="parent" Type="Self.parent" Multiplicity="1" />
+          <End Role="studentparent" Type="Self.studentparent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="parent">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparent">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentpa__paren__6EF57B66">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="studentparentnew" Type="Self.studentparentnew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparentnew">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentpa__stude__6A30C649">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="studentparent" Type="Self.studentparent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparent">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentpa__stude__6E01572D">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="studentparentnew" Type="Self.studentparentnew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparentnew">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SomeDbModelStoreContainer">
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="parent" EntityType="Self.parent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="studentparent" EntityType="Self.studentparent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="studentparentnew" EntityType="Self.studentparentnew" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personal1" EntityType="Self.Personal1" Schema="TEST" Table="Personal" store:Type="Tables" />
+          <EntitySet Name="Personal_Backup" EntityType="Self.Personal_Backup" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Personal_Backup].[id] AS [id], 
+    [Personal_Backup].[first_name] AS [first_name], 
+    [Personal_Backup].[last_name] AS [last_name], 
+    [Personal_Backup].[email] AS [email], 
+    [Personal_Backup].[gender] AS [gender], 
+    [Personal_Backup].[country] AS [country], 
+    [Personal_Backup].[address] AS [address]
+    FROM [dbo].[Personal_Backup] AS [Personal_Backup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_FullDetails" EntityType="Self.vw_FullDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_FullDetails].[id] AS [id], 
+    [vw_FullDetails].[first_name] AS [first_name], 
+    [vw_FullDetails].[last_name] AS [last_name], 
+    [vw_FullDetails].[email] AS [email], 
+    [vw_FullDetails].[gender] AS [gender], 
+    [vw_FullDetails].[country] AS [country], 
+    [vw_FullDetails].[age] AS [age], 
+    [vw_FullDetails].[salary] AS [salary], 
+    [vw_FullDetails].[orderid] AS [orderid], 
+    [vw_FullDetails].[userid] AS [userid], 
+    [vw_FullDetails].[product] AS [product], 
+    [vw_FullDetails].[quantity] AS [quantity], 
+    [vw_FullDetails].[price] AS [price]
+    FROM [dbo].[vw_FullDetails] AS [vw_FullDetails]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__OrderDeta__useri__619B8048" Association="Self.FK__OrderDeta__useri__619B8048">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentpa__paren__6B24EA82" Association="Self.FK__studentpa__paren__6B24EA82">
+            <End Role="parent" EntitySet="parent" />
+            <End Role="studentparent" EntitySet="studentparent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentpa__paren__6EF57B66" Association="Self.FK__studentpa__paren__6EF57B66">
+            <End Role="student" EntitySet="student" />
+            <End Role="studentparentnew" EntitySet="studentparentnew" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentpa__stude__6A30C649" Association="Self.FK__studentpa__stude__6A30C649">
+            <End Role="student" EntitySet="student" />
+            <End Role="studentparent" EntitySet="studentparent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentpa__stude__6E01572D" Association="Self.FK__studentpa__stude__6E01572D">
+            <End Role="student" EntitySet="student" />
+            <End Role="studentparentnew" EntitySet="studentparentnew" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SomeDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SomeDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Menus" EntityType="SomeDbModel.Menu" />
+          <EntitySet Name="OrderDetails" EntityType="SomeDbModel.OrderDetail" />
+          <EntitySet Name="parents" EntityType="SomeDbModel.parent" />
+          <EntitySet Name="Personals" EntityType="SomeDbModel.Personal" />
+          <EntitySet Name="students" EntityType="SomeDbModel.student" />
+          <EntitySet Name="studentparents" EntityType="SomeDbModel.studentparent" />
+          <EntitySet Name="studentparentnews" EntityType="SomeDbModel.studentparentnew" />
+          <EntitySet Name="UserDetails" EntityType="SomeDbModel.UserDetail" />
+          <EntitySet Name="Personal1" EntityType="SomeDbModel.Personal1" />
+          <EntitySet Name="Personal_Backup" EntityType="SomeDbModel.Personal_Backup" />
+          <EntitySet Name="vw_FullDetails" EntityType="SomeDbModel.vw_FullDetails" />
+          <AssociationSet Name="FK__OrderDeta__useri__619B8048" Association="SomeDbModel.FK__OrderDeta__useri__619B8048">
+            <End Role="UserDetail" EntitySet="UserDetails" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentpa__paren__6B24EA82" Association="SomeDbModel.FK__studentpa__paren__6B24EA82">
+            <End Role="parent" EntitySet="parents" />
+            <End Role="studentparent" EntitySet="studentparents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentpa__paren__6EF57B66" Association="SomeDbModel.FK__studentpa__paren__6EF57B66">
+            <End Role="student" EntitySet="students" />
+            <End Role="studentparentnew" EntitySet="studentparentnews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentpa__stude__6A30C649" Association="SomeDbModel.FK__studentpa__stude__6A30C649">
+            <End Role="student" EntitySet="students" />
+            <End Role="studentparent" EntitySet="studentparents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__studentpa__stude__6E01572D" Association="SomeDbModel.FK__studentpa__stude__6E01572D">
+            <End Role="student" EntitySet="students" />
+            <End Role="studentparentnew" EntitySet="studentparentnews" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="parentId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="quantity" Type="Int32" />
+          <NavigationProperty Name="UserDetail" Relationship="SomeDbModel.FK__OrderDeta__useri__619B8048" FromRole="OrderDetail" ToRole="UserDetail" />
+        </EntityType>
+        <EntityType Name="parent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parentname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="parenttype" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="studentparents" Relationship="SomeDbModel.FK__studentpa__paren__6B24EA82" FromRole="parent" ToRole="studentparent" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="studentparentnews" Relationship="SomeDbModel.FK__studentpa__paren__6EF57B66" FromRole="student" ToRole="studentparentnew" />
+          <NavigationProperty Name="studentparents" Relationship="SomeDbModel.FK__studentpa__stude__6A30C649" FromRole="student" ToRole="studentparent" />
+          <NavigationProperty Name="studentparentnews1" Relationship="SomeDbModel.FK__studentpa__stude__6E01572D" FromRole="student" ToRole="studentparentnew" />
+        </EntityType>
+        <EntityType Name="studentparent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentid" Type="Int32" Nullable="false" />
+          <Property Name="parentid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="parent" Relationship="SomeDbModel.FK__studentpa__paren__6B24EA82" FromRole="studentparent" ToRole="parent" />
+          <NavigationProperty Name="student" Relationship="SomeDbModel.FK__studentpa__stude__6A30C649" FromRole="studentparent" ToRole="student" />
+        </EntityType>
+        <EntityType Name="studentparentnew">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentid" Type="Int32" Nullable="false" />
+          <Property Name="parentid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="student" Relationship="SomeDbModel.FK__studentpa__paren__6EF57B66" FromRole="studentparentnew" ToRole="student" />
+          <NavigationProperty Name="student1" Relationship="SomeDbModel.FK__studentpa__stude__6E01572D" FromRole="studentparentnew" ToRole="student" />
+        </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OrderDetails" Relationship="SomeDbModel.FK__OrderDeta__useri__619B8048" FromRole="UserDetail" ToRole="OrderDetail" />
+        </EntityType>
+        <EntityType Name="Personal1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Personal_Backup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_FullDetails">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="salary" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="orderid" Type="Int32" Nullable="false" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="7" Scale="2" />
+        </EntityType>
+        <Association Name="FK__OrderDeta__useri__619B8048">
+          <End Type="SomeDbModel.UserDetail" Role="UserDetail" Multiplicity="0..1" />
+          <End Type="SomeDbModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetail">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentpa__paren__6B24EA82">
+          <End Type="SomeDbModel.parent" Role="parent" Multiplicity="1" />
+          <End Type="SomeDbModel.studentparent" Role="studentparent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="parent">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparent">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentpa__paren__6EF57B66">
+          <End Type="SomeDbModel.student" Role="student" Multiplicity="1" />
+          <End Type="SomeDbModel.studentparentnew" Role="studentparentnew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparentnew">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentpa__stude__6A30C649">
+          <End Type="SomeDbModel.student" Role="student" Multiplicity="1" />
+          <End Type="SomeDbModel.studentparent" Role="studentparent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparent">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__studentpa__stude__6E01572D">
+          <End Type="SomeDbModel.student" Role="student" Multiplicity="1" />
+          <End Type="SomeDbModel.studentparentnew" Role="studentparentnew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="studentparentnew">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SomeDbModelStoreContainer" CdmEntityContainer="SomeDbEntities">
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="SomeDbModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="SomeDbModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="parents">
+            <EntityTypeMapping TypeName="SomeDbModel.parent">
+              <MappingFragment StoreEntitySet="parent">
+                <ScalarProperty Name="parenttype" ColumnName="parenttype" />
+                <ScalarProperty Name="parentname" ColumnName="parentname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personals">
+            <EntityTypeMapping TypeName="SomeDbModel.Personal">
+              <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="SomeDbModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="studentname" ColumnName="studentname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="studentparents">
+            <EntityTypeMapping TypeName="SomeDbModel.studentparent">
+              <MappingFragment StoreEntitySet="studentparent">
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="studentid" ColumnName="studentid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="studentparentnews">
+            <EntityTypeMapping TypeName="SomeDbModel.studentparentnew">
+              <MappingFragment StoreEntitySet="studentparentnew">
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="studentid" ColumnName="studentid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDetails">
+            <EntityTypeMapping TypeName="SomeDbModel.UserDetail">
+              <MappingFragment StoreEntitySet="UserDetails">
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personal1">
+            <EntityTypeMapping TypeName="SomeDbModel.Personal1">
+              <MappingFragment StoreEntitySet="Personal1">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personal_Backup">
+            <EntityTypeMapping TypeName="SomeDbModel.Personal_Backup">
+              <MappingFragment StoreEntitySet="Personal_Backup">
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_FullDetails">
+            <EntityTypeMapping TypeName="SomeDbModel.vw_FullDetails">
+              <MappingFragment StoreEntitySet="vw_FullDetails">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
