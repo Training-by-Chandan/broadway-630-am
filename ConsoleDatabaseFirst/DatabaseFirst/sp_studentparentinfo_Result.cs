@@ -10,15 +10,12 @@
 namespace ConsoleDatabaseFirst.DatabaseFirst
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Personal
+    public partial class sp_studentparentinfo_Result
     {
-        public int id { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string email { get; set; }
-        public string gender { get; set; }
-        public string country { get; set; }
+        public int StudentId { get; set; }
+        public string StudentName { get; set; }
+        public string FatherName { get; set; }
+        public string MotherName { get; set; }
     }
 }

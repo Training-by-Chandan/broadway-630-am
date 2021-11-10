@@ -12,6 +12,8 @@ namespace ConsoleDatabaseFirst.DatabaseFirst
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class SomeDbEntities : DbContext
     {
@@ -28,7 +30,6 @@ namespace ConsoleDatabaseFirst.DatabaseFirst
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<parent> parents { get; set; }
-        public virtual DbSet<Personal> Personals { get; set; }
         public virtual DbSet<student> students { get; set; }
         public virtual DbSet<studentparent> studentparents { get; set; }
         public virtual DbSet<studentparentnew> studentparentnews { get; set; }
@@ -36,5 +37,28 @@ namespace ConsoleDatabaseFirst.DatabaseFirst
         public virtual DbSet<Personal1> Personal1 { get; set; }
         public virtual DbSet<Personal_Backup> Personal_Backup { get; set; }
         public virtual DbSet<vw_FullDetails> vw_FullDetails { get; set; }
+        public virtual DbSet<Personal> Personals { get; set; }
+    
+        public virtual int sp_createStudentParent(string studentname, string fathername, string mothername)
+        {
+            var studentnameParameter = studentname != null ?
+                new ObjectParameter("studentname", studentname) :
+                new ObjectParameter("studentname", typeof(string));
+    
+            var fathernameParameter = fathername != null ?
+                new ObjectParameter("fathername", fathername) :
+                new ObjectParameter("fathername", typeof(string));
+    
+            var mothernameParameter = mothername != null ?
+                new ObjectParameter("mothername", mothername) :
+                new ObjectParameter("mothername", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createStudentParent", studentnameParameter, fathernameParameter, mothernameParameter);
+        }
+    
+        public virtual ObjectResult<sp_studentparentinfo_Result> sp_studentparentinfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_studentparentinfo_Result>("sp_studentparentinfo");
+        }
     }
 }

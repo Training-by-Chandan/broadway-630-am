@@ -88,6 +88,9 @@
     <Compile Include="DatabaseFirst\Personal_Backup.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseFirst\sp_studentparentinfo_Result.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseFirst\student.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>

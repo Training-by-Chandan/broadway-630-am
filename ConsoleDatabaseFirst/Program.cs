@@ -72,6 +72,8 @@ namespace ConsoleDatabaseFirst
             var personal = db.Personals.Find(id);
             if (personal != null)
             {
+                //db.sp_createStudentParent("", "", "");
+                var data = db.sp_studentparentinfo();
                 db.Personals.Remove(personal);
                 db.SaveChanges();
             }

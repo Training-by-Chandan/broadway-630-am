@@ -183,6 +183,12 @@ warning 6002: The table/view 'SomeDb.dbo.vw_FullDetails' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_createStudentParent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="studentname" Type="nvarchar" Mode="In" />
+          <Parameter Name="fathername" Type="nvarchar" Mode="In" />
+          <Parameter Name="mothername" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_studentparentinfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="SomeDbModelStoreContainer">
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
@@ -250,7 +256,6 @@ warning 6002: The table/view 'SomeDb.dbo.vw_FullDetails' does not have a primary
           <EntitySet Name="Menus" EntityType="SomeDbModel.Menu" />
           <EntitySet Name="OrderDetails" EntityType="SomeDbModel.OrderDetail" />
           <EntitySet Name="parents" EntityType="SomeDbModel.parent" />
-          <EntitySet Name="Personals" EntityType="SomeDbModel.Personal" />
           <EntitySet Name="students" EntityType="SomeDbModel.student" />
           <EntitySet Name="studentparents" EntityType="SomeDbModel.studentparent" />
           <EntitySet Name="studentparentnews" EntityType="SomeDbModel.studentparentnew" />
@@ -278,6 +283,13 @@ warning 6002: The table/view 'SomeDb.dbo.vw_FullDetails' does not have a primary
             <End Role="student" EntitySet="students" />
             <End Role="studentparentnew" EntitySet="studentparentnews" />
           </AssociationSet>
+          <EntitySet Name="Personals" EntityType="SomeDbModel.Personal" />
+          <FunctionImport Name="sp_createStudentParent">
+            <Parameter Name="studentname" Mode="In" Type="String" />
+            <Parameter Name="fathername" Mode="In" Type="String" />
+            <Parameter Name="mothername" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_studentparentinfo" ReturnType="Collection(SomeDbModel.sp_studentparentinfo_Result)" />
         </EntityContainer>
         <EntityType Name="Menu">
           <Key>
@@ -306,18 +318,6 @@ warning 6002: The table/view 'SomeDb.dbo.vw_FullDetails' does not have a primary
           <Property Name="parentname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="parenttype" Type="Int32" Nullable="false" />
           <NavigationProperty Name="studentparents" Relationship="SomeDbModel.FK__studentpa__paren__6B24EA82" FromRole="parent" ToRole="studentparent" />
-        </EntityType>
-        <EntityType Name="Personal">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="age" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="student">
           <Key>
@@ -464,6 +464,23 @@ warning 6002: The table/view 'SomeDb.dbo.vw_FullDetails' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="sp_studentparentinfo_Result">
+          <Property Type="Int32" Name="StudentId" Nullable="false" />
+          <Property Type="String" Name="StudentName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FatherName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MotherName" Nullable="false" MaxLength="50" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -495,18 +512,6 @@ warning 6002: The table/view 'SomeDb.dbo.vw_FullDetails' does not have a primary
               <MappingFragment StoreEntitySet="parent">
                 <ScalarProperty Name="parenttype" ColumnName="parenttype" />
                 <ScalarProperty Name="parentname" ColumnName="parentname" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Personals">
-            <EntityTypeMapping TypeName="SomeDbModel.Personal">
-              <MappingFragment StoreEntitySet="Personal">
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -594,6 +599,29 @@ warning 6002: The table/view 'SomeDb.dbo.vw_FullDetails' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Personals">
+            <EntityTypeMapping TypeName="SomeDbModel.Personal">
+              <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_createStudentParent" FunctionName="SomeDbModel.Store.sp_createStudentParent" />
+          <FunctionImportMapping FunctionImportName="sp_studentparentinfo" FunctionName="SomeDbModel.Store.sp_studentparentinfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SomeDbModel.sp_studentparentinfo_Result">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
