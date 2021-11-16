@@ -39,34 +39,37 @@ namespace MyDesktop
             this.BtnCreate = new System.Windows.Forms.Button();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.BtnReset = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // GridStudent
             // 
             this.GridStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridStudent.Location = new System.Drawing.Point(63, 267);
+            this.GridStudent.Location = new System.Drawing.Point(13, 267);
             this.GridStudent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GridStudent.Name = "GridStudent";
             this.GridStudent.RowHeadersWidth = 51;
             this.GridStudent.RowTemplate.Height = 24;
             this.GridStudent.Size = new System.Drawing.Size(785, 195);
             this.GridStudent.TabIndex = 0;
+            this.GridStudent.SelectionChanged += new System.EventHandler(this.GridStudent_SelectionChanged);
             // 
             // LabelFirstName
             // 
             this.LabelFirstName.AutoSize = true;
-            this.LabelFirstName.Location = new System.Drawing.Point(72, 35);
+            this.LabelFirstName.Location = new System.Drawing.Point(22, 35);
             this.LabelFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelFirstName.Name = "LabelFirstName";
-            this.LabelFirstName.Size = new System.Drawing.Size(88, 21);
+            this.LabelFirstName.Size = new System.Drawing.Size(106, 25);
             this.LabelFirstName.TabIndex = 1;
             this.LabelFirstName.Text = "First Name";
             // 
             // LabelLastName
             // 
             this.LabelLastName.AutoSize = true;
-            this.LabelLastName.Location = new System.Drawing.Point(72, 89);
+            this.LabelLastName.Location = new System.Drawing.Point(22, 89);
             this.LabelLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelLastName.Name = "LabelLastName";
             this.LabelLastName.Size = new System.Drawing.Size(106, 25);
@@ -76,37 +79,37 @@ namespace MyDesktop
             // LabelDOB
             // 
             this.LabelDOB.AutoSize = true;
-            this.LabelDOB.Location = new System.Drawing.Point(72, 145);
+            this.LabelDOB.Location = new System.Drawing.Point(22, 145);
             this.LabelDOB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelDOB.Name = "LabelDOB";
-            this.LabelDOB.Size = new System.Drawing.Size(98, 21);
+            this.LabelDOB.Size = new System.Drawing.Size(118, 25);
             this.LabelDOB.TabIndex = 3;
             this.LabelDOB.Text = "Date of Birth";
             // 
             // TextFirstName
             // 
-            this.TextFirstName.Location = new System.Drawing.Point(270, 32);
+            this.TextFirstName.Location = new System.Drawing.Point(220, 32);
             this.TextFirstName.Name = "TextFirstName";
-            this.TextFirstName.Size = new System.Drawing.Size(307, 30);
+            this.TextFirstName.Size = new System.Drawing.Size(578, 30);
             this.TextFirstName.TabIndex = 4;
             // 
             // TextLastName
             // 
-            this.TextLastName.Location = new System.Drawing.Point(270, 86);
+            this.TextLastName.Location = new System.Drawing.Point(220, 86);
             this.TextLastName.Name = "TextLastName";
-            this.TextLastName.Size = new System.Drawing.Size(307, 30);
+            this.TextLastName.Size = new System.Drawing.Size(578, 30);
             this.TextLastName.TabIndex = 5;
             // 
             // DateDob
             // 
-            this.DateDob.Location = new System.Drawing.Point(270, 140);
+            this.DateDob.Location = new System.Drawing.Point(220, 140);
             this.DateDob.Name = "DateDob";
-            this.DateDob.Size = new System.Drawing.Size(306, 30);
+            this.DateDob.Size = new System.Drawing.Size(578, 30);
             this.DateDob.TabIndex = 6;
             // 
             // BtnCreate
             // 
-            this.BtnCreate.Location = new System.Drawing.Point(426, 210);
+            this.BtnCreate.Location = new System.Drawing.Point(647, 210);
             this.BtnCreate.Name = "BtnCreate";
             this.BtnCreate.Size = new System.Drawing.Size(151, 36);
             this.BtnCreate.TabIndex = 7;
@@ -116,7 +119,7 @@ namespace MyDesktop
             // 
             // BtnRefresh
             // 
-            this.BtnRefresh.Location = new System.Drawing.Point(622, 210);
+            this.BtnRefresh.Location = new System.Drawing.Point(13, 210);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(151, 36);
             this.BtnRefresh.TabIndex = 8;
@@ -126,7 +129,7 @@ namespace MyDesktop
             // 
             // BtnReset
             // 
-            this.BtnReset.Location = new System.Drawing.Point(251, 210);
+            this.BtnReset.Location = new System.Drawing.Point(465, 210);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(151, 36);
             this.BtnReset.TabIndex = 9;
@@ -134,11 +137,35 @@ namespace MyDesktop
             this.BtnReset.UseVisualStyleBackColor = true;
             this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Location = new System.Drawing.Point(465, 210);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(151, 36);
+            this.BtnDelete.TabIndex = 11;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Visible = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // BtnEdit
+            // 
+            this.BtnEdit.Location = new System.Drawing.Point(647, 210);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(151, 36);
+            this.BtnEdit.TabIndex = 10;
+            this.BtnEdit.Text = "Edit";
+            this.BtnEdit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Visible = false;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 578);
+            this.ClientSize = new System.Drawing.Size(830, 487);
+            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.BtnCreate);
@@ -172,5 +199,7 @@ namespace MyDesktop
         private System.Windows.Forms.Button BtnCreate;
         private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.Button BtnReset;
+        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnEdit;
     }
 }
