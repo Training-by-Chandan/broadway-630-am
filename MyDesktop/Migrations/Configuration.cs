@@ -27,6 +27,14 @@
                 context.Students.Add(student);
                 context.SaveChanges();
             }
+
+            var adminUser = new Model.UserInfo { Username = "admin", Password = "Admin@123", Roles = Model.Roles.Admin };
+            var existingUser = context.UserInfo.Any(p => p.Username.ToUpper() == adminUser.Username.ToUpper());
+            if (!existingUser)
+            {
+                context.UserInfo.Add(adminUser);
+                context.SaveChanges();
+            }
         }
     }
 }

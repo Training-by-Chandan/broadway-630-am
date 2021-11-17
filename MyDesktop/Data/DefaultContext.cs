@@ -15,5 +15,6 @@ namespace MyDesktop.Data
         }
 
         public DbSet<Student> Students { get; set; }
+        public DbSet<UserInfo> UserInfo { get; set; }
     }
 }
