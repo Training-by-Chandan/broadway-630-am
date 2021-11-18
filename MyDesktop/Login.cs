@@ -23,6 +23,11 @@ namespace MyDesktop
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            LoginFunction();
+        }
+
+        private void LoginFunction()
+        {
             var loginmodel = new LoginViewModel()
             {
                 Username = txtUsername.Text,
@@ -31,10 +36,7 @@ namespace MyDesktop
             var res = userService.Login(loginmodel);
             if (res.Success)
             {
-                MainForm m = new MainForm();
-                m.MdiParent = this.MdiParent;
-                m.Show();
-                this.Close();
+                OpenMainForm();
             }
             else
             {
@@ -42,8 +44,24 @@ namespace MyDesktop
             }
         }
 
+        private void OpenMainForm()
+        {
+            MainForm m = new MainForm();
+            m.MdiParent = this.MdiParent;
+            m.Show();
+            this.Close();
+        }
+
         private void btnReset_Click(object sender, EventArgs e)
         {
+        }
+
+        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginFunction();
+            }
         }
     }
 }

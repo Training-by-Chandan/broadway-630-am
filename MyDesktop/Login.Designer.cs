@@ -42,7 +42,7 @@ namespace MyDesktop
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(35, 86);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(124, 29);
+            this.lblUsername.Size = new System.Drawing.Size(102, 25);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
@@ -51,7 +51,7 @@ namespace MyDesktop
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(35, 152);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(120, 29);
+            this.lblPassword.Size = new System.Drawing.Size(98, 25);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
             // 
@@ -59,16 +59,18 @@ namespace MyDesktop
             // 
             this.txtUsername.Location = new System.Drawing.Point(207, 83);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(491, 35);
+            this.txtUsername.Size = new System.Drawing.Size(491, 30);
             this.txtUsername.TabIndex = 2;
+            this.txtUsername.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(207, 149);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = 'x';
-            this.txtPassword.Size = new System.Drawing.Size(491, 35);
+            this.txtPassword.Size = new System.Drawing.Size(491, 30);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
             // 
             // btnLogin
             // 
@@ -92,7 +94,7 @@ namespace MyDesktop
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 352);
             this.Controls.Add(this.btnReset);

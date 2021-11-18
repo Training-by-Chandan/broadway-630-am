@@ -41,5 +41,19 @@ namespace MyDesktop
         private void CloseAllExistingForms()
         {
         }
+
+        private void calculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void webBrowserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Browser wb = new Browser();
+            wb.MdiParent = this;
+            wb.Show();
+        }
     }
 }

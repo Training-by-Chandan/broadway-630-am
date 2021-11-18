@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Test"></Button>
+        <StackPanel>
+            <Button Content="Test"></Button>
+            <Button Content="Test"></Button>
+            <Button Content="Test"></Button>
+            <Button Content="Test"></Button>
+            <Button Content="Test"></Button>
+            <Button Content="Test"></Button>
+            <Button Content="Test"></Button>
+            <TabControl Height="100">
+                <TabItem Header="TabItem">
+                    <Grid Background="#FFE5E5E5" />
+                </TabItem>
+                <TabItem Header="TabItem">
+                    <Grid Background="#FFE5E5E5" />
+                </TabItem>
+            </TabControl>
+        </StackPanel>
     </Grid>
 </Window>
