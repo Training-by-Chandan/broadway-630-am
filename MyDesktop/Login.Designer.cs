@@ -35,6 +35,7 @@ namespace MyDesktop
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.myControl1 = new MyDesktop.UserControls.MyControl();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -92,11 +93,20 @@ namespace MyDesktop
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // myControl1
+            // 
+            this.myControl1.Location = new System.Drawing.Point(13, 312);
+            this.myControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.myControl1.Name = "myControl1";
+            this.myControl1.Size = new System.Drawing.Size(697, 75);
+            this.myControl1.TabIndex = 6;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 352);
+            this.ClientSize = new System.Drawing.Size(763, 429);
+            this.Controls.Add(this.myControl1);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -109,6 +119,7 @@ namespace MyDesktop
             this.MinimizeBox = false;
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +133,6 @@ namespace MyDesktop
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnReset;
+        private UserControls.MyControl myControl1;
     }
 }

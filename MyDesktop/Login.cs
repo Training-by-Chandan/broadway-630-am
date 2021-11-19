@@ -63,5 +63,11 @@ namespace MyDesktop
                 LoginFunction();
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.myControl1.Label = "Username";
+            this.myControl1.TextBoxText.PasswordChar = 'x';
+        }
     }
 }
