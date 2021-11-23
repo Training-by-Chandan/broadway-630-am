@@ -1,0 +1,15 @@
+input {
+  width: 500px;
+  font-size: larger;
+}
+
+#months {
+  font-size: larger;
+  background-color: aliceblue;
+  color: rgb(177, 135, 135);
+}
+
+.basic {
+  background-color: aliceblue;
+  color: rgb(177, 135, 135);
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="a.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <div>
+            <input type="checkbox" id="check" />
+            <label id="lblcheck">Checkbox</label>
+        </div>
+    </div>
+    <div id="content"></div>
+    <button id="btn" class="test">Click me</button>
+    <script src="jquery.3.6.0.min.js"></script>
+    <script>
+        var i = 0;
+        var t = $('<button>Dynamic Button</button>')
+        $(document).ready(function () {
+
+            // $('#lblcheck').on('click', function () {
+            //     $('#lblcheck').siblings('#check').prop('checked', !$('#lblcheck').siblings('#check')
+            //         .prop(
+            //             'checked'));
+            // });
+
+            // $('#content').html(t);
+            // $('#btn').on('click', function () {
+            //     $('#content').toggleClass('basic');
+            // });
+
+            // $('#btn').on('click', function () {
+            //     i++;
+            //     $('#content').prepend('Clicked ' + i + ' times');
+
+            // });
+
+            // setTimeout(() => {
+            //     alert("timeout executed")
+            // }, 10000);
+            // setInterval(() => {
+            //     var date = new Date();
+            //     console.log(date.toDateString());
+            // }, 2000);
+        });
+
+    </script>
+</body>
+
+</html>
