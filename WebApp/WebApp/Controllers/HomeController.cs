@@ -26,5 +26,23 @@ namespace WebApp.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult ABC()
+        {
+            return View();
+        }
+
+        public ActionResult XYZ(int test, string x)
+        {
+            if (!string.IsNullOrWhiteSpace(Request.QueryString["y"]))
+            {
+                Response.StatusCode = 400;
+            }
+            ViewBag.test = test * 2;
+            ViewBag.x = x + " " + x;
+            Response.ContentType = "text/html";
+            return View();
+        }
     }
 }

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "XYZ";
+}
+
+<h2>XYZ</h2>
+<h3>User sent </h3>
+<label>test : @ViewBag.test</label>
+<br />
+<label>x : @ViewBag.x</label>
+@{
+    Random r = new Random();
+}
+@for (int i = 0; i < 10; i++)
+{
+    <p>@r.Next(1000, 10000) works fine </p>
+}

@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -635,9 +636,12 @@
     <Content Include="Views\Shared\_LayoutNew.cshtml" />
     <Content Include="Views\Shared\_LayoutMaterial.cshtml" />
     <Content Include="Views\Shared\_LayoutPaper.cshtml" />
+    <Content Include="Views\Home\abc.cshtml" />
+    <Content Include="Views\Home\XYZ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
