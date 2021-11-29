@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -112,12 +118,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -171,10 +171,36 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StandardsController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111290128055_initial.cs" />
+    <Compile Include="Migrations\202111290128055_initial.Designer.cs">
+      <DependentUpon>202111290128055_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111290132456_student.cs" />
+    <Compile Include="Migrations\202111290132456_student.Designer.cs">
+      <DependentUpon>202111290132456_student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111290146238_teacher.cs" />
+    <Compile Include="Migrations\202111290146238_teacher.Designer.cs">
+      <DependentUpon>202111290146238_teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111290158393_studentProperiesChanged.cs" />
+    <Compile Include="Migrations\202111290158393_studentProperiesChanged.Designer.cs">
+      <DependentUpon>202111290158393_studentProperiesChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111290209166_stanrdsAdded.cs" />
+    <Compile Include="Migrations\202111290209166_stanrdsAdded.Designer.cs">
+      <DependentUpon>202111290209166_stanrdsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="ViewModel\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="ViewModel\ManageViewModels.cs" />
@@ -687,6 +713,21 @@
     <Content Include="Views\Home\XYZ.cshtml" />
     <Content Include="Views\Shared\Partial\_Card.cshtml" />
     <Content Include="Views\Default\abc.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
+    <Content Include="Views\Standards\Create.cshtml" />
+    <Content Include="Views\Standards\Delete.cshtml" />
+    <Content Include="Views\Standards\Details.cshtml" />
+    <Content Include="Views\Standards\Edit.cshtml" />
+    <Content Include="Views\Standards\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -703,6 +744,23 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202111290128055_initial.resx">
+      <DependentUpon>202111290128055_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111290132456_student.resx">
+      <DependentUpon>202111290132456_student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111290146238_teacher.resx">
+      <DependentUpon>202111290146238_teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111290158393_studentProperiesChanged.resx">
+      <DependentUpon>202111290158393_studentProperiesChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111290209166_stanrdsAdded.resx">
+      <DependentUpon>202111290209166_stanrdsAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

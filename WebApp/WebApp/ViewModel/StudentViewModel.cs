@@ -13,6 +13,11 @@ namespace WebApp.ViewModel
 
         public StudentViewModel(int id, string name, string email)
         {
+            AssignData(id, name, email);
+        }
+
+        private void AssignData(int id, string name, string email)
+        {
             this.Id = id;
             this.Name = name;
             this.Email = email;

@@ -18,9 +18,9 @@
 
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", htmlAttributes:new { @class="nav-link"})</li>
-                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", htmlAttributes: new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", htmlAttributes: new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home",null, htmlAttributes:new { @class="nav-link"})</li>
+                    <li class="nav-item">@Html.ActionLink("Student", "Index", "Students",null, htmlAttributes: new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Teacher", "Index", "Teachers",null, htmlAttributes: new { @class = "nav-link" })</li>
                 </ul>
                 <ul class="navbar-nav float-right">
                     @Html.Partial("_LoginPartial")
