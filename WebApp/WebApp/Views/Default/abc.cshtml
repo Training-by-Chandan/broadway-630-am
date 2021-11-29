@@ -1,0 +1,20 @@
+﻿@model List<WebApp.ViewModel.StudentViewModel>
+@{
+    ViewBag.Title = "abc";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">@item.Id</div>
+                <div class="card-body">
+                    <label>Name : <strong>@item.Name</strong></label>
+                    <label>Email : <strong>@item.Email</strong></label>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    }
+</div>

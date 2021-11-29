@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,17 +49,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -102,6 +101,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -174,11 +174,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="ViewModel\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="ViewModel\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\CardPartialViewModel.cs" />
+    <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -286,6 +289,28 @@
     <Content Include="Content\material\js\plugins\perfect-scrollbar.min.js" />
     <Content Include="Content\material\js\plugins\smooth-scrollbar.min.js" />
     <Content Include="Content\material\js\plugins\world.js" />
+    <Content Include="Content\new-bs\css\bootstrap-grid.css" />
+    <Content Include="Content\new-bs\css\bootstrap-grid.min.css" />
+    <Content Include="Content\new-bs\css\bootstrap-grid.rtl.css" />
+    <Content Include="Content\new-bs\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\new-bs\css\bootstrap-reboot.css" />
+    <Content Include="Content\new-bs\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\new-bs\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\new-bs\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\new-bs\css\bootstrap-utilities.css" />
+    <Content Include="Content\new-bs\css\bootstrap-utilities.min.css" />
+    <Content Include="Content\new-bs\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\new-bs\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\new-bs\css\bootstrap.css" />
+    <Content Include="Content\new-bs\css\bootstrap.min.css" />
+    <Content Include="Content\new-bs\css\bootstrap.rtl.css" />
+    <Content Include="Content\new-bs\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\new-bs\js\bootstrap.bundle.js" />
+    <Content Include="Content\new-bs\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\new-bs\js\bootstrap.esm.js" />
+    <Content Include="Content\new-bs\js\bootstrap.esm.min.js" />
+    <Content Include="Content\new-bs\js\bootstrap.js" />
+    <Content Include="Content\new-bs\js\bootstrap.min.js" />
     <Content Include="Content\paper\css\bootstrap.min.css" />
     <Content Include="Content\paper\css\paper-dashboard.css" />
     <Content Include="Content\paper\css\paper-dashboard.min.css" />
@@ -588,6 +613,28 @@
     <Content Include="Content\paper\scss\paper-dashboard\_tables.scss" />
     <Content Include="Content\paper\scss\paper-dashboard\_typography.scss" />
     <Content Include="Content\paper\scss\paper-dashboard\_variables.scss" />
+    <Content Include="Content\new-bs\css\bootstrap-grid.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-utilities.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap.min.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap.rtl.css.map" />
+    <Content Include="Content\new-bs\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\new-bs\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\new-bs\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\new-bs\js\bootstrap.esm.js.map" />
+    <Content Include="Content\new-bs\js\bootstrap.esm.min.js.map" />
+    <Content Include="Content\new-bs\js\bootstrap.js.map" />
+    <Content Include="Content\new-bs\js\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -638,10 +685,11 @@
     <Content Include="Views\Shared\_LayoutPaper.cshtml" />
     <Content Include="Views\Home\abc.cshtml" />
     <Content Include="Views\Home\XYZ.cshtml" />
+    <Content Include="Views\Shared\Partial\_Card.cshtml" />
+    <Content Include="Views\Default\abc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

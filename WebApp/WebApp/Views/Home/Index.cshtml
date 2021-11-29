@@ -1,4 +1,6 @@
-﻿<div class="row">
+﻿@using WebApp.ViewModel
+
+<div class="row">
     <span>i am here.</span>
 </div>
 <div class="row">
@@ -6,7 +8,17 @@
 </div>
 <a href="/home/xyz?test=20&x=abc">Click Here</a>
 
+<div class="row">
+    <div class="col-lg-4">
+        @Html.Partial("Partial/_Card", new CardPartialViewModel() { Header = "Kishor", Body = "Kishor is a good guy." })
+    </div>
+    <div class="col-lg-4">
+        @Html.Partial("Partial/_Card", new CardPartialViewModel() { Header = "Bashanta", Body = "Bashanta is a good guy." })
+    </div>
+    <div class="col-lg-4">
+        @Html.Partial("Partial/_Card", new CardPartialViewModel() { Header = "Ruman", Body = "Ruman is also a good guy." })
+    </div>
+</div>
 @*@section header{
     <h3>Index</h3><h2>abc</h2>
     }*@
-
