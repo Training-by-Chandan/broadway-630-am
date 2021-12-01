@@ -167,6 +167,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\StandardsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StudentController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -197,8 +200,17 @@
     <Compile Include="Migrations\202111290209166_stanrdsAdded.Designer.cs">
       <DependentUpon>202111290209166_stanrdsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112010107327_standardrequired.cs" />
+    <Compile Include="Migrations\202112010107327_standardrequired.Designer.cs">
+      <DependentUpon>202112010107327_standardrequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112010117384_userForeignKeyAdded.cs" />
+    <Compile Include="Migrations\202112010117384_userForeignKeyAdded.Designer.cs">
+      <DependentUpon>202112010117384_userForeignKeyAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Standards.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="ViewModel\AccountViewModels.cs" />
@@ -207,6 +219,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\CardPartialViewModel.cs" />
+    <Compile Include="ViewModel\StudentCreateViewModel.cs" />
     <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -661,6 +674,16 @@
     <Content Include="Content\new-bs\js\bootstrap.esm.min.js.map" />
     <Content Include="Content\new-bs\js\bootstrap.js.map" />
     <Content Include="Content\new-bs\js\bootstrap.min.js.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Standards\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Standards\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Standards\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Standards\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Standards\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Student\CreateStudentUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Student\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -731,6 +754,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -760,6 +784,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111290209166_stanrdsAdded.resx">
       <DependentUpon>202111290209166_stanrdsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112010107327_standardrequired.resx">
+      <DependentUpon>202112010107327_standardrequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112010117384_userForeignKeyAdded.resx">
+      <DependentUpon>202112010117384_userForeignKeyAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

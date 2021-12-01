@@ -17,7 +17,8 @@ namespace WebApp.Models
 
         [Required]
         [Display(Name = "Email Address")]
-        [DataType(DataType.EmailAddress)]
+        //[DataType(DataType.EmailAddress)]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Display(Name = "Phone Number")]
@@ -27,11 +28,10 @@ namespace WebApp.Models
 
         [ForeignKey("StandardId")]
         public virtual Standards Standards { get; set; }
-    }
 
-    public class Standards
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser Users { get; set; }
     }
 }
