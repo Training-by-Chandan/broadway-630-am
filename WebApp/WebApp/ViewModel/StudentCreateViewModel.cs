@@ -28,4 +28,13 @@ namespace WebApp.ViewModel
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
     }
+
+    public class StudentListViewModel
+    {
+        public int StudentId { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string StandardName { get; set; }
+    }
 }

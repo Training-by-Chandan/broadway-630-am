@@ -15,9 +15,37 @@ namespace WebApp.Areas.Admin.Controllers
         // GET: Admin/Student
         public ActionResult Index()
         {
-            return View();
+            var data = (from s in db.Students.AsQueryable()
+                        select new StudentListViewModel
+                        {
+                            StudentId = s.Id,
+                            Email = s.Email,
+                            Name = s.Name,
+                            Phone = s.Phone,
+                            StandardName = s.Standards == null ? "" : s.Standards.Name
+                        }).ToList();
+
+            return View(data);
         }
+
+        public ActionResult Details(int studentId)
+        {
+            var data = (from s in db.Students.AsQueryable()
+                        where s.Id == studentId
+                        select new StudentListViewModel
+                        {
+                            StudentId = s.Id,
+                            Email = s.Email,
+                            Name = s.Name,
+                            Phone = s.Phone,
+                            StandardName = s.Standards == null ? "" : s.Standards.Name
+                        }).FirstOrDefault();
+
+            return View(data);
+        }
+
         private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult CreateStudentUser()
         {
             return View();
@@ -36,7 +64,8 @@ namespace WebApp.Areas.Admin.Controllers
                 userManager.Create(userToInsert, model.Password);
 
                 //Step 2 : Create Student
-                var student = new Student() {
+                var student = new Student()
+                {
                     Email = model.Email,
                     Name = model.Name,
                     Phone = model.Phone,
@@ -48,7 +77,6 @@ namespace WebApp.Areas.Admin.Controllers
                 //Step 3 : Assign User as Student
                 userManager.AddToRole(userToInsert.Id, "Student");
                 return RedirectToAction("Index");
-
             }
             return View(model);
         }

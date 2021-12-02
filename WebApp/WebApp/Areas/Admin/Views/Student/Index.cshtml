@@ -1,5 +1,46 @@
-﻿@{
+﻿@model List<WebApp.ViewModel.StudentListViewModel>
+@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+@if (Model == null || Model.Count == 0)
+{
+    <span class="alert alert-danger">No Records found</span>
+}
+else
+{
+    <div class="row">
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Standard</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.StandardName</td>
+                        <td>
+                            <a href="~/admin/student/details?studentid=@item.StudentId"> <i class="fa fa-book"></i> </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@section scripts{
+   <script>
+       $(document).ready(function () {
+           $('#studentTable').DataTable({
+               stateSave: true
+           });
+       });
+    </script>
+}

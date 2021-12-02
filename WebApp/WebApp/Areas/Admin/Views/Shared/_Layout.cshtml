@@ -21,6 +21,8 @@
     <!-- CSS Files -->
     @*<link id="pagestyle" href="~/Content/material/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />*@
     @Styles.Render("~/material")
+
+    <link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -348,6 +350,7 @@
         </div>
     </div>
     <!--   Core JS Files   -->
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Content/material/js/core/popper.min.js"></script>
     <script src="~/Content/material/js/core/bootstrap.min.js"></script>
     <script src="~/Content/material/js/plugins/perfect-scrollbar.min.js"></script>
@@ -612,6 +615,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="~/Content/material/js/material-dashboard.min.js?v=3.0.0"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
