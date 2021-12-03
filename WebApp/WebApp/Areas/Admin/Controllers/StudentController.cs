@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp.Attribs;
 using WebApp.Models;
 using WebApp.ViewModel;
 
@@ -24,6 +25,8 @@ namespace WebApp.Areas.Admin.Controllers
                             Phone = s.Phone,
                             StandardName = s.Standards == null ? "" : s.Standards.Name
                         }).ToList();
+
+            //ViewData["StadardId"] = classlist;
 
             return View(data);
         }
@@ -48,10 +51,17 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult CreateStudentUser()
         {
+            var classlist = db.Standards.Select(p => new SelectListItem
+            {
+                Text = p.Name,
+                Value = p.Id.ToString()
+            }).AsEnumerable();
+            ViewBag.Classlist = classlist;
             return View();
         }
 
         [HttpPost]
+        [TwelveFilter]
         public ActionResult CreateStudentUser(StudentCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -78,6 +88,13 @@ namespace WebApp.Areas.Admin.Controllers
                 userManager.AddToRole(userToInsert.Id, "Student");
                 return RedirectToAction("Index");
             }
+
+            var classlist = db.Standards.Select(p => new SelectListItem
+            {
+                Text = p.Name,
+                Value = p.Id.ToString()
+            }).AsEnumerable();
+            ViewBag.Classlist = classlist;
             return View(model);
         }
     }

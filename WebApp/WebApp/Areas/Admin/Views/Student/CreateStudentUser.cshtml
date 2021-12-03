@@ -4,8 +4,9 @@
 }
 
 <h2>Create Student and User</h2>
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 <form action="~/admin/student/createstudentuser" , method="post">
+    @Html.Hidden("Test", 12)
     <div class="input-group input-group-outline">
         <label class="form-label">Name</label>
         @Html.EditorFor(p => p.Name, new
@@ -35,11 +36,14 @@
     </div>
     <br />
     <div class="input-group input-group-outline">
-       
-        <select class="form-control" name="StanrdId">
-            <option value="1">Class 1</option>
-            <option value="2">Class 2</option>
-        </select>
+        @{
+            var classlist = ViewBag.Classlist as IEnumerable<SelectListItem>;
+        }
+        @Html.DropDownList("StandardId", classlist, "Select the class", new { @class = "form-control" })
+        @*<select class="form-control" name="StanrdId">
+                <option value="1">Class 1</option>
+                <option value="2">Class 2</option>
+            </select>*@
     </div>
     <br />
     <div class="input-group input-group-outline">
