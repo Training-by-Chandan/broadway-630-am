@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApp.Attribs;
+using WebApp.Layer.ServiceLayer;
 using WebApp.Models;
 using WebApp.ViewModel;
 
@@ -13,6 +14,8 @@ namespace WebApp.Areas.Admin.Controllers
 {
     public class StudentController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Admin/Student
         public ActionResult Index()
         {
@@ -47,18 +50,14 @@ namespace WebApp.Areas.Admin.Controllers
             return View(data);
         }
 
-        private ApplicationDbContext db = new ApplicationDbContext();
-
         public ActionResult CreateStudentUser()
         {
-            var classlist = db.Standards.Select(p => new SelectListItem
-            {
-                Text = p.Name,
-                Value = p.Id.ToString()
-            }).AsEnumerable();
-            ViewBag.Classlist = classlist;
+            ViewBag.Classlist = standardService.GetStandardsList();
             return View();
         }
+
+        private IStudentService studentService = new StudentService();
+        private IStandardService standardService = new StandardService();
 
         [HttpPost]
         [TwelveFilter]
@@ -66,35 +65,12 @@ namespace WebApp.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                //todo :
-                //step 1 : Create User
-                var userStore = new UserStore<ApplicationUser>(db);
-                var userManager = new UserManager<ApplicationUser>(userStore);
-                var userToInsert = new ApplicationUser { UserName = model.Email, PhoneNumber = model.Phone, Email = model.Email };
-                userManager.Create(userToInsert, model.Password);
-
-                //Step 2 : Create Student
-                var student = new Student()
+                if (studentService.CreateStudentUser(model))
                 {
-                    Email = model.Email,
-                    Name = model.Name,
-                    Phone = model.Phone,
-                    StandardId = model.StandardId,
-                    UserId = userToInsert.Id
-                };
-                db.Students.Add(student);
-                db.SaveChanges();
-                //Step 3 : Assign User as Student
-                userManager.AddToRole(userToInsert.Id, "Student");
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
             }
-
-            var classlist = db.Standards.Select(p => new SelectListItem
-            {
-                Text = p.Name,
-                Value = p.Id.ToString()
-            }).AsEnumerable();
-            ViewBag.Classlist = classlist;
+            ViewBag.Classlist = standardService.GetStandardsList();
             return View(model);
         }
     }

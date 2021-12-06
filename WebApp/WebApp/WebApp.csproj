@@ -181,6 +181,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Layer\DataLayer\ReposiotyrBase.cs" />
+    <Compile Include="Layer\DataLayer\StandardRepository.cs" />
+    <Compile Include="Layer\DataLayer\StudentRepository.cs" />
+    <Compile Include="Layer\ServiceLayer\StandardService.cs" />
+    <Compile Include="Layer\ServiceLayer\StudentService.cs" />
     <Compile Include="Migrations\202111290128055_initial.cs" />
     <Compile Include="Migrations\202111290128055_initial.Designer.cs">
       <DependentUpon>202111290128055_initial.cs</DependentUpon>
