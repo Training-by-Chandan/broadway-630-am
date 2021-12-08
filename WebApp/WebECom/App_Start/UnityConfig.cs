@@ -19,9 +19,10 @@ namespace WebECom
         {
             var container = new UnityContainer();
 
-            
             container.RegisterType<ApplicationDbContext>(new HierarchicalLifetimeManager());
             container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
+
             #region Repository
 
             container.RegisterType<ICategoryRepository, CategoryRepository>();
