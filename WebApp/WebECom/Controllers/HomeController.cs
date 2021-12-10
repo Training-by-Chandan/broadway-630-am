@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
-using WebECom.Layers.Service;
+using WebECom.Services;
 
 namespace WebECom.Controllers
 {

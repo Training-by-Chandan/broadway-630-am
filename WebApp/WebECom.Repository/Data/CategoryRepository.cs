@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using WebECom.Models;
 
-namespace WebECom.Layers.Data
+namespace WebECom.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {

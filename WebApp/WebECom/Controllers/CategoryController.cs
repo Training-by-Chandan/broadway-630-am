@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebECom.Layers.Service;
+using WebECom.Services;
 using WebECom.ViewModel;
 
 namespace WebECom.Controllers

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 
-namespace WebECom.Layers.Service
+namespace WebECom.Services
 {
     public class EmailSenderService : IEmailSenderService
     {

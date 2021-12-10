@@ -9,8 +9,8 @@ using Unity.Lifetime;
 using Unity.Mvc5;
 using WebECom.App_Start;
 using WebECom.Controllers;
-using WebECom.Layers.Data;
-using WebECom.Layers.Service;
+using WebECom.Repository;
+using WebECom.Services;
 using WebECom.Models;
 
 namespace WebECom

@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebECom.Layers.Data;
+using WebECom.Repository;
 using WebECom.Models;
 using WebECom.ViewModel;
 
-namespace WebECom.Layers.Service
+namespace WebECom.Services
 {
     public class CategoryService : ICategoryService
     {
