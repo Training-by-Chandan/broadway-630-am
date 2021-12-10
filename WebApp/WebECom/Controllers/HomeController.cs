@@ -11,12 +11,15 @@ namespace WebECom.Controllers
     public class HomeController : Controller
     {
         private readonly ICategoryService categoryService;
+        private readonly IEmailSenderService emailSenderService;
 
         public HomeController(
-            ICategoryService categoryService
+            ICategoryService categoryService,
+            IEmailSenderService emailSenderService
             )
         {
             this.categoryService = categoryService;
+            this.emailSenderService = emailSenderService;
         }
 
         public ActionResult Index()
@@ -35,7 +38,7 @@ namespace WebECom.Controllers
         {
             ViewBag.Message = "Your contact page.";
             //sending email
-            //Thread.Sleep(10000);
+            emailSenderService.SendEmail();
             return View();
         }
     }

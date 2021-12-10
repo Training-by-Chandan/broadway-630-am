@@ -44,6 +44,7 @@ namespace WebECom
             #region Services
 
             container.RegisterType<ICategoryService, CategoryService>();
+            container.RegisterType<IEmailSenderService, EmailSenderService>();
 
             #endregion Services
 
