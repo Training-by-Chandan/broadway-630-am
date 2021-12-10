@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebECom", "WebECom\WebECom.csproj", "{7663B93E-741F-4478-863E-5DE330FD644E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebECom.Model", "WebECom.Model\WebECom.Model.csproj", "{CD6AAC93-EE44-44EE-95FB-DF2666649456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebECom.Repository", "WebECom.Repository\WebECom.Repository.csproj", "{AD299251-865B-413A-9E98-1E4F03F19C67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebECom.Services", "WebECom.Services\WebECom.Services.csproj", "{63468AFE-800D-48D5-A5BB-433C00F52009}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{7663B93E-741F-4478-863E-5DE330FD644E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7663B93E-741F-4478-863E-5DE330FD644E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7663B93E-741F-4478-863E-5DE330FD644E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD6AAC93-EE44-44EE-95FB-DF2666649456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD6AAC93-EE44-44EE-95FB-DF2666649456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD6AAC93-EE44-44EE-95FB-DF2666649456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD6AAC93-EE44-44EE-95FB-DF2666649456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD299251-865B-413A-9E98-1E4F03F19C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD299251-865B-413A-9E98-1E4F03F19C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD299251-865B-413A-9E98-1E4F03F19C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD299251-865B-413A-9E98-1E4F03F19C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63468AFE-800D-48D5-A5BB-433C00F52009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63468AFE-800D-48D5-A5BB-433C00F52009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63468AFE-800D-48D5-A5BB-433C00F52009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63468AFE-800D-48D5-A5BB-433C00F52009}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
