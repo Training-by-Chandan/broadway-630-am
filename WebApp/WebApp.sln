@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebECom.Repository", "WebEC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebECom.Services", "WebECom.Services\WebECom.Services.csproj", "{63468AFE-800D-48D5-A5BB-433C00F52009}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebEcom.API", "WebEcom.API\WebEcom.API.csproj", "{8B34C147-D391-4872-A997-FCA49053B71C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{63468AFE-800D-48D5-A5BB-433C00F52009}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63468AFE-800D-48D5-A5BB-433C00F52009}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63468AFE-800D-48D5-A5BB-433C00F52009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B34C147-D391-4872-A997-FCA49053B71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B34C147-D391-4872-A997-FCA49053B71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B34C147-D391-4872-A997-FCA49053B71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B34C147-D391-4872-A997-FCA49053B71C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
