@@ -1,0 +1,13 @@
+<form [formGroup]='forms' (ngSubmit)="onSubmit()">
+  <input type="text" formControlName='name' placeholder="name">
+  <input type="text" formControlName='address' placeholder="address">
+  <button type="submit">Submit</button>
+</form>
+<hr>
+<label>Name : {{forms.value.name}}</label>
+<pre>{{forms.value | json}}</pre>
+
+
+<hr>
+<input type="text" (change)="TextChange($event)">
+<label>{{inputstring}}</label>
