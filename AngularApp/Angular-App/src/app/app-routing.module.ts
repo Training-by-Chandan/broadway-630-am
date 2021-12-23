@@ -6,6 +6,7 @@ import { NewComponentComponent } from './new-component/new-component.component';
 import { BodyComponent } from './body/body.component';
 import { FormComponent } from './form/form.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { CatCreateComponent } from './cat-create/cat-create.component';
 
 const appRoutes: Routes = [
   { path:'header', component: HeaderComponent },
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
   { path:'body', component: BodyComponent},
   { path:'form', component: FormComponent},
   { path:'category', component: CategoryListComponent},
+  { path:'category-create', component: CatCreateComponent},
   { path:'', redirectTo:'/body', pathMatch:'full' }
 ];
 

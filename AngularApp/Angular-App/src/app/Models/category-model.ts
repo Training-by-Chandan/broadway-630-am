@@ -6,3 +6,11 @@ export class CategoryModel {
     public ParentCategoryName: string ;
     public Status:boolean
 }
+
+
+export class CategoryCreateModel{
+    public ParentCategoryId:number; 
+    public Title:string;
+    public Description:string;
+    public Status:boolean;
+}

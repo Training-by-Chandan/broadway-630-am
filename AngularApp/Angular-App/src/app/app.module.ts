@@ -13,6 +13,7 @@ import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CatCreateComponent } from './cat-create/cat-create.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     BodyComponent,
     NewComponentComponent,
     FormComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    CatCreateComponent
   ],
   imports: [
     BrowserModule,

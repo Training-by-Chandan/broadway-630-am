@@ -18,4 +18,12 @@ export class CategoryListComponent implements OnInit {
     })
   }
 
+  Delete(id:number){
+    this.catService.deleteCategory(id).subscribe(data=>{
+      this.catService.getCategoryList().subscribe(data=>{
+        this.list=data;
+      })
+    })
+  }
+
 }

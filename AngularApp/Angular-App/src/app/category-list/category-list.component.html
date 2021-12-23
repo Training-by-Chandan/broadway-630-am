@@ -1,9 +1,10 @@
+<a href="/category-create" class="btn btn-outline-danger">Create</a>
 <div class="row" *ngFor="let cat of list">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">{{cat.Title}}</h5>
       <p class="card-text">{{cat.Description}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <button class="btn btn-danger" (click)="Delete(cat.Id)">Delete</button>
     </div>
   </div>
 </div>

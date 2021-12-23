@@ -1,0 +1,22 @@
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Parent Category Id</label>
+    <select class="form-control" formControlName="ParentCategoryId">
+      <option value="0">None</option>
+      <option *ngFor="let cat of catList" [value]="cat.Id">{{cat.Title}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="Title">Title</label>
+    <input type="text" class="form-control" id="Title" formControlName="Title">
+  </div>
+  <div class="form-group">
+    <label for="Description">Description</label>
+    <input type="text" class="form-control" id="Description" formControlName="Description">
+  </div>
+  <div class="form-group">
+    <input type="checkbox" class="" id="Status" formControlName="Status">
+    <label for="Status">Status</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
