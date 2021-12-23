@@ -8,12 +8,13 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using WebECom.Models;
 
 namespace WebEcom.API.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class CategoriesController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -23,7 +24,7 @@ namespace WebEcom.API.Controllers
         /// List all the categories along with their parents
         /// </summary>
         /// <returns></returns>
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IQueryable<Category> GetCategories()
         {
             return db.Categories;
@@ -31,7 +32,8 @@ namespace WebEcom.API.Controllers
 
         // GET: api/Categories/5
         [ResponseType(typeof(Category))]
-        [AllowAnonymous]
+        //  [AllowAnonymous]
+        [EnableCors("https://www.w3schools.com,https://getbootstrap.com", "*", "*")]
         public async Task<IHttpActionResult> GetCategory(int id)
         {
             Category category = await db.Categories.FindAsync(id);
@@ -95,6 +97,7 @@ namespace WebEcom.API.Controllers
 
         // DELETE: api/Categories/5
         [ResponseType(typeof(Category))]
+        [HttpPost]
         public async Task<IHttpActionResult> DeleteCategory(int id)
         {
             Category category = await db.Categories.FindAsync(id);

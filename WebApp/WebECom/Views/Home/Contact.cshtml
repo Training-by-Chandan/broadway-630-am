@@ -3,15 +3,37 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
+<button id="btn" class="btn btn-outline-success">Click to load Categories</button>
+<div id="categories">
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+</div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#btn').on('click', function () {
+                
+            });
+
+            setInterval(function () {
+                var settings = {
+                    "url": "https://localhost:44382/api/category/getallcategory",
+                    "method": "GET",
+                };
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                    for (var i = 0; i < response.length; i++) {
+                        $('#categories').append('<div class="row">' + response[i].Title + '</div>')
+                    }
+                }).fail(function (err) {
+                    alert(err);
+                });
+            }, 5000)
+        });
+
+
+    </script>
+    }
+
+
