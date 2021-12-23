@@ -19,6 +19,12 @@ namespace WebECom.App_Start
                 {
                     dest.ParentCategoryName = src.Parent == null ? "" : src.Parent.Title;
                 });
+
+                cfg.CreateMap<ProductViewModel, Product>();
+                cfg.CreateMap<Product, ProductViewModel>().AfterMap((src, dest) =>
+                {
+                    dest.CategoryName = src.Category == null ? "" : src.Category.Title;
+                });
             });
 
             return mapperConfiguration;

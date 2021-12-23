@@ -38,6 +38,7 @@ namespace WebECom
             #region Repository
 
             container.RegisterType<ICategoryRepository, CategoryRepository>();
+            container.RegisterType<IProductRepository, ProductRepository>();
 
             #endregion Repository
 
@@ -45,6 +46,7 @@ namespace WebECom
 
             container.RegisterType<ICategoryService, CategoryService>();
             container.RegisterType<IEmailSenderService, EmailSenderService>();
+            container.RegisterType<IProductService, ProductService>();
 
             #endregion Services
 
