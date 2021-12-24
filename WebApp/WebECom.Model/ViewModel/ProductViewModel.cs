@@ -7,5 +7,6 @@
         public string PhotoPath { get; set; }
         public int? CategoryId { get; set; }
         public string CategoryName { get; set; }
+        public double Price { get; set; }
     }
 }

@@ -130,6 +130,56 @@ namespace WebECom.Controllers
         //    db.SaveChanges();
         //    return RedirectToAction("Index");
         //}
+        [HttpGet]
+        public ActionResult AddToCart(int productId, bool add = true)
+        {
+            var existing = productService.GetById(productId);
+            if (existing != null)
+            {
+                var sessionObj = Session["cart"] as List<SessionModel>;
+                if (sessionObj == null)
+                {
+                    sessionObj = new List<SessionModel>();
+                    sessionObj.Add(new SessionModel
+                    {
+                        Price = existing.Price,
+                        ProductId = productId,
+                        ProductName = existing.Title,
+                        Quantity = add ? 1 : 0
+                    });
+                }
+                else
+                {
+                    var session = sessionObj.FirstOrDefault(p => p.ProductId == productId);
+                    if (session == null)
+                    {
+                        sessionObj.Add(new SessionModel
+                        {
+                            Price = existing.Price,
+                            ProductId = productId,
+                            ProductName = existing.Title,
+                            Quantity = add ? 1 : 0
+                        });
+                    }
+                    else
+                    {
+                        session.Quantity = add ? session.Quantity + 1 : session.Quantity - 1;
+                    }
+                }
+                Session["cart"] = sessionObj;
+            }
+
+            //add this to sesstion
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ListCart()
+        {
+            var cook = new HttpCookie("name", "Chandan");
+            cook.Expires = DateTime.Now.AddSeconds(30);
+            Response.Cookies.Set(cook);
+            return View();
+        }
 
         protected override void Dispose(bool disposing)
         {

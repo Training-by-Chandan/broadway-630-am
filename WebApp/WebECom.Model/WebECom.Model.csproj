@@ -93,6 +93,10 @@
     <Compile Include="Migrations\202112230148352_photoAdded.Designer.cs">
       <DependentUpon>202112230148352_photoAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112240138202_priceadded.cs" />
+    <Compile Include="Migrations\202112240138202_priceadded.Designer.cs">
+      <DependentUpon>202112240138202_priceadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112230148352_photoAdded.resx">
       <DependentUpon>202112230148352_photoAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112240138202_priceadded.resx">
+      <DependentUpon>202112240138202_priceadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

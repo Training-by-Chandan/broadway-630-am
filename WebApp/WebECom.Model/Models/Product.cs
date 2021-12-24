@@ -7,6 +7,7 @@ namespace WebECom.Models
         public string Title { get; set; }
         public int? CategoryId { get; set; }
         public string PhotoPath { get; set; }
+        public double Price { get; set; }
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }

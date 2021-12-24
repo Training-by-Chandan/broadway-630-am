@@ -16,6 +16,8 @@ namespace WebECom.Services
         (bool, string, int) Edit(ProductViewModel model);
 
         IEnumerable<ProductViewModel> GetAll();
+
+        ProductViewModel GetById(int ProductId);
     }
 
     public class ProductService : IProductService
@@ -57,6 +59,13 @@ namespace WebECom.Services
         {
             var product = mapper.Map<ProductViewModel, Product>(model);
             return productRepository.Update(product);
+        }
+
+        public ProductViewModel GetById(int ProductId)
+        {
+            var data = productRepository.GetById(ProductId);
+            var returndata = mapper.Map<Product, ProductViewModel>(data);
+            return returndata;
         }
     }
 }

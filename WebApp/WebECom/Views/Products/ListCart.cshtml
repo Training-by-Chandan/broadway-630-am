@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "ListCart";
+    var session = Session["cart"] as List<SessionModel>;
+}
+
+<h2>ListCart</h2>
+@if (session == null)
+{
+    <span class="btn btn-danger">Nothing Found</span>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in session)
+            {
+                <tr>
+                    <th>@item.ProductName</th>
+                    <th>@item.Price</th>
+                    <th>@item.Quantity</th>
+                    @{
+                        var total = item.Quantity * item.Price;
+                    }
+                    <th>@total</th>
+                    <th>
+                    </th>
+                </tr>
+            }
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                    @{ 
+                        var grandTotal = session.Sum(p => (p.Price * p.Quantity));
+                    }
+                <th>
+                    @grandTotal
+                </th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+}
