@@ -8,7 +8,7 @@ namespace WebECom.Migrations
     using System.Linq;
     using WebECom.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebECom.Models.ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<WebECom.Models.ApplicationDbContext>
     {
         public Configuration()
         {
